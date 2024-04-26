@@ -1,6 +1,8 @@
 import './Footer.scss';
 
 function Footer() {
+
+    const currentYear = new Date().getFullYear();
     return (
         <footer className="footer">
             <div className="footer-content">
@@ -34,7 +36,7 @@ function Footer() {
                 </div>
             </div>
             <div className="footer-bottom">
-                <p>© 2021 All Rights Reserved. <a href="https://brian-novoa.com/">brian-novoa®</a></p>
+                <p>© {currentYear} All Rights Reserved. <a href="https://brian-novoa.com/">brian-novoa</a>®</p>
             </div>
         </footer>
     );

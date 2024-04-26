@@ -1,7 +1,7 @@
 @import '../../variables';
 
 .footer {
-    background-color: #FFF;
+    background-color: $bg-color-secondary;
     color: $primary_text;
     display: flex;
     flex-direction: column;
