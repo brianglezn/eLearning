@@ -1,1 +1,156 @@
 @import '../variables';
+
+.home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .main {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        border-radius: 30px;
+        min-height: 50vh;
+        width: 95%;
+        background-image: repeating-linear-gradient(96deg,
+                #f5eef900 0px,
+                #f5eef900 1px,
+                transparent 1px,
+                transparent 11px,
+                #f5eef900 11px,
+                #f5eef900 12px,
+                transparent 12px,
+                transparent 32px),
+            repeating-linear-gradient(231deg,
+                #f5eef900 0px,
+                #f5eef900 1px,
+                transparent 1px,
+                transparent 11px,
+                #f4ecf800 11px,
+                #f5eef900 12px,
+                transparent 12px,
+                transparent 32px),
+            repeating-linear-gradient(96deg,
+                #f5eef900 0px,
+                #f5eef900 1px,
+                transparent 1px,
+                transparent 11px,
+                #f5eef900 11px,
+                #f5eef900 12px,
+                transparent 12px,
+                transparent 32px),
+            repeating-linear-gradient(141deg,
+                #f5eef900 0px,
+                #f5eef900 1px,
+                transparent 1px,
+                transparent 11px,
+                #f5eef900 11px,
+                #f5eef900 12px,
+                transparent 12px,
+                transparent 32px),
+            linear-gradient(186deg, $primary_color-500, $primary_color-700);
+
+        .banner {
+            max-width: 960px;
+            text-align: center;
+            padding: 40px;
+            border-radius: 8px;
+            color: #fff;
+        }
+    }
+
+    .courses {
+        width: 100%;
+        max-width: 1100px;
+        padding: 20px;
+        margin-top: 2rem;
+
+        h2 {
+            margin-bottom: 2rem;
+            margin-top: 2rem;
+        }
+
+        .p-carousel-container {
+            display: flex;
+            align-items: stretch;
+            gap: 20px;
+
+            .p-carousel-items-container {
+                display: flex;
+                align-items: stretch;
+                min-height: 29rem;
+
+                >div {
+                    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+                    &:hover {
+                        transform: scale(0.990);
+                    }
+                }
+            }
+        }
+
+        .course-card {
+            display: flex;
+            flex-direction: column;
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 10px;
+            margin: 0 10px;
+            min-height: 25rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+
+            img {
+                border-radius: 4px;
+                margin-bottom: 8px;
+            }
+
+            .course-details {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                padding: 10px;
+
+                .course-card--price {
+                    font-weight: 600;
+                    color: #43783f;
+                }
+            }
+        }
+    }
+
+    .categories {
+        display: flex;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        gap: 20px;
+
+        .category-card {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: calc(25% - 20px);
+            height: 4.5rem;
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+            &:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+            }
+
+            h3 {
+                font-size: 1.2rem;
+                color: #333;
+                text-align: center;
+            }
+        }
+    }
+}
