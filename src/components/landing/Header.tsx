@@ -5,7 +5,8 @@ function Header() {
         <header className="header">
             <div className="container">
                 <div className="logo">
-                    <img src="/path-to-your-logo.png" alt="Logo" />
+                    <img src="https://res.cloudinary.com/dz0mwxb0v/image/upload/v1714402089/eLearning/logo_eLearning.png" alt="Logo" />
+                    <h2>eLearning</h2>
                 </div>
                 <nav className="menu">
                     <ul>

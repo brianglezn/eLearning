@@ -7,9 +7,8 @@ function Footer() {
         <footer className="footer">
             <div className="footer-content">
                 <div className="footer-section logo">
-                    {/* logo */}
-                    <img src="/path-to-your-logo.png" alt="logo" />
-                    <p>We are a passionate group of instructors helping thousands to start their journey with online courses.</p>
+                    <img src="https://res.cloudinary.com/dz0mwxb0v/image/upload/v1714402089/eLearning/logo_eLearning.png" alt="Logo" />
+                    <h2>eLearning</h2>
                 </div>
                 <div className="footer-section about">
                     <h3>ABOUT</h3>
