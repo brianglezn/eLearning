@@ -1,4 +1,5 @@
 import { Carousel } from 'primereact/carousel';
+
 import Footer from '../components/landing/Footer';
 import Header from '../components/landing/Header';
 import './Home.scss';
@@ -91,7 +92,7 @@ function Home() {
 
   const responsiveOptions = [
     {
-      breakpoint: '2000px',
+      breakpoint: '4000px',
       numVisible: 4,
       numScroll: 3
     },
@@ -112,7 +113,6 @@ function Home() {
     }
   ];
 
-
   const courseTemplate = (course: Course) => {
     return (
       <div className="course-card">
@@ -130,6 +130,7 @@ function Home() {
   return (
     <>
       <Header />
+
       <div className="home">
         <main className="main">
           <div className="banner">
@@ -137,6 +138,7 @@ function Home() {
             <p>Join millions of students around the world exploring the best courses.</p>
           </div>
         </main>
+
         <section className='courses'>
           <h2>Popular Courses</h2>
           <Carousel value={popularCourses} itemTemplate={courseTemplate} responsiveOptions={responsiveOptions} circular />
@@ -149,9 +151,16 @@ function Home() {
               </div>
             ))}
           </div>
-
         </section>
+
+        <section className="stepper"></section>
+
+        <section className="price"></section>
+
+        <section className="testimonials"></section>
+
       </div>
+
       <Footer />
     </>
   );
