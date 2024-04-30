@@ -91,21 +91,27 @@ function Home() {
 
   const responsiveOptions = [
     {
-      breakpoint: '1024px',
+      breakpoint: '2000px',
+      numVisible: 4,
+      numScroll: 3
+    },
+    {
+      breakpoint: '1050px',
       numVisible: 3,
       numScroll: 3
     },
     {
-      breakpoint: '600px',
+      breakpoint: '720px',
       numVisible: 2,
       numScroll: 2
     },
     {
-      breakpoint: '480px',
+      breakpoint: '500px',
       numVisible: 1,
       numScroll: 1
     }
   ];
+
 
   const courseTemplate = (course: Course) => {
     return (
@@ -133,7 +139,7 @@ function Home() {
         </main>
         <section className='courses'>
           <h2>Popular Courses</h2>
-          <Carousel value={popularCourses} itemTemplate={courseTemplate} numVisible={3} numScroll={1} responsiveOptions={responsiveOptions} circular />
+          <Carousel value={popularCourses} itemTemplate={courseTemplate} responsiveOptions={responsiveOptions} circular />
 
           <h2>Categorías</h2>
           <div className="categories">
