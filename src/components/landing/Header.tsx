@@ -10,13 +10,13 @@ function Header() {
                 </div>
                 <nav className="menu">
                     <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#courses">Courses</a></li>
-                        <li><a href="#comunity">Comunity</a></li>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/courses">Courses</a></li>
+                        <li><a href="/community">Comunity</a></li>
                     </ul>
                 </nav>
                 <div className="login">
-                    <button onClick={() => console.log('Log In')}>Log In</button>
+                    <a href="/login">Log In</a>
                 </div>
             </div>
         </header >
