@@ -48,12 +48,7 @@ function Register() {
                             placeholder="Password"
                             required
                         />
-                        <button
-                            className="formSubmit"
-                            type="submit"
-                        >
-                            Let's go!
-                        </button>
+                        <button className="formSubmit" type="submit">Let's go!</button>
                         <p className="formChange">Already have an account?<a href="/login">Sign in</a></p>
                     </form>
                 </div>

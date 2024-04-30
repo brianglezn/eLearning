@@ -2,7 +2,7 @@ import Footer from '../components/landing/Footer';
 
 import './Login_Register.scss';
 
-function Login() {
+function ForgotPassword() {
     return (
         <div className='login'>
             <header className="header">
@@ -16,7 +16,7 @@ function Login() {
 
             <section className="content">
                 <div className="formContainer">
-                    <h2 className='formTitle'>LOG IN</h2>
+                    <h2 className='formTitle'>FORGOT PASSWORD</h2>
                     <form className='form' action="">
                         <input
                             className="formEmail"
@@ -24,15 +24,7 @@ function Login() {
                             placeholder="E-mail"
                             required
                         />
-                        <input
-                            className="formPassword"
-                            type={"password"}
-                            placeholder="Password"
-                            required
-                        />
-                        <a className="formForgot" href="/forgotpassword">Forgot password?</a>
                         <button className="formSubmit" type="submit">Let's go!</button>
-                        <p className="formChange">Don't have an account?<a href="/register">Sign up</a></p>
                     </form>
                 </div>
             </section>
@@ -42,4 +34,4 @@ function Login() {
     );
 }
 
-export default Login;
+export default ForgotPassword;
