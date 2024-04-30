@@ -6,6 +6,7 @@ import Community from './pages/Community';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import ForgotPassword from './pages/ForgotPassword';
+import ForgotPasswordToken from './pages/ForgotPasswordToken';
 
 import './App.scss'
 
@@ -19,6 +20,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/forgotpassword" element={<ForgotPassword />} />
+        <Route path="/forgotpasswordtoken" element={<ForgotPasswordToken />} />
       </Routes>
     </Router>
   );
