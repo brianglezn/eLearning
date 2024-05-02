@@ -13,8 +13,16 @@
         justify-content: space-between;
         align-items: center;
         padding: 20px 50px;
-        width: 70%;
+        width: 100%;
+        max-width: 1200px;
 
+        @media (max-width: 1200px) {
+            width: 100%;
+        }
+
+        @media (max-width:480px) {
+            padding: 20px 20px;
+        }
 
         .logo {
             flex: 1;
@@ -28,10 +36,13 @@
         }
 
         .menu {
-
             flex: 1;
             display: flex;
             justify-content: center;
+
+            @media (max-width: 768px) {
+                display: none;
+            }
 
             ul {
                 display: flex;
@@ -63,6 +74,10 @@
         display: flex;
         justify-content: right;
 
+        @media (max-width: 768px) {
+            display: none;
+        }
+
         a {
             padding: 12px 30px;
             background-color: $primary_color-600;
@@ -77,6 +92,28 @@
             &:hover {
                 background-color: $primary_color-700;
             }
+        }
+    }
+
+    .sideMenu {
+        display: none;
+
+        @media (max-width: 768px) {
+            display: block;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 24px;
+            color: $primary_text;
+        }
+
+        button {
+            border: 0;
+            background-color: $primary_color-500;
+            padding: 10px 15px;
+            border-radius: 5px;
+            color: $bg-color;
+            cursor: pointer;
         }
     }
 }

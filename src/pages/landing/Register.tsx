@@ -1,8 +1,8 @@
-import Footer from '../components/landing/Footer';
+import Footer from '../../components/landing/Footer';
 
 import './Login_Register.scss';
 
-function Login() {
+function Register() {
     return (
         <div className='login'>
             <header className="header">
@@ -16,8 +16,26 @@ function Login() {
 
             <section className="content">
                 <div className="formContainer">
-                    <h2 className='formTitle'>LOG IN</h2>
+                    <h2 className='formTitle'>REGISTER</h2>
                     <form className='form' action="">
+                        <input
+                            className="formUsername"
+                            type="username"
+                            placeholder="Username"
+                            required
+                        />
+                        <input
+                            className="formName"
+                            type="name"
+                            placeholder="Name"
+                            required
+                        />
+                        <input
+                            className="formSurname"
+                            type="surname"
+                            placeholder="Surname"
+                            required
+                        />
                         <input
                             className="formEmail"
                             type="email"
@@ -30,9 +48,8 @@ function Login() {
                             placeholder="Password"
                             required
                         />
-                        <a className="formForgot" href="/forgotpassword">Forgot password?</a>
                         <button className="formSubmit" type="submit">Let's go!</button>
-                        <p className="formChange">Don't have an account?<a href="/register">Sign up</a></p>
+                        <p className="formChange">Already have an account?<a href="/login">Sign in</a></p>
                     </form>
                 </div>
             </section>
@@ -42,4 +59,4 @@ function Login() {
     );
 }
 
-export default Login;
+export default Register;

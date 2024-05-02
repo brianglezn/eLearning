@@ -1,12 +1,15 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
-import Home from './pages/Home';
-import Courses from './pages/Courses';
-import Community from './pages/Community';
-import Login from './pages/Login';
-import Register from './pages/Register';
-import ForgotPassword from './pages/ForgotPassword';
-import ForgotPasswordToken from './pages/ForgotPasswordToken';
+// import "primereact/resources/themes/lara-light-cyan/theme.css";
+// import "primereact/resources/themes/lara-light-blue/theme.css";
+
+import Home from './pages/landing/Home';
+import Courses from './pages/landing/Courses';
+import Community from './pages/landing/Community';
+import Login from './pages/landing/Login';
+import Register from './pages/landing/Register';
+import ForgotPassword from './pages/landing/ForgotPassword';
+import ForgotPasswordToken from './pages/landing/ForgotPasswordToken';
 
 import './App.scss'
 

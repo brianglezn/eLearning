@@ -1,6 +1,11 @@
+import { Sidebar } from 'primereact/sidebar';
+
 import './Header.scss';
+import { useState } from 'react';
 
 function Header() {
+    const [visibleSidebar, setVisibleSidebar] = useState(false);
+
     return (
         <header className="header">
             <div className="container">
@@ -16,10 +21,28 @@ function Header() {
                         <li><a href="/community">Comunity</a></li>
                     </ul>
                 </nav>
-                
+
                 <div className="login">
                     <a href="/login">Log In</a>
                 </div>
+
+                <div className="sideMenu">
+                    <Sidebar visible={visibleSidebar} onHide={() => setVisibleSidebar(false)}>
+                        <div className="sideMenuItems">
+                            <ul>
+                                <li><a href="/">Home</a></li>
+                                <li><a href="/courses">Courses</a></li>
+                                <li><a href="/community">Community</a></li>
+                                <li><a href="/login">Log In</a></li>
+                            </ul>
+                        </div>
+                    </Sidebar>
+
+                    <button className="sidebar-toggle-button" onClick={() => setVisibleSidebar(true)}>
+                        <i className="fa-solid fa-bars"></i>
+                    </button>
+                </div>
+
             </div>
         </header >
     );

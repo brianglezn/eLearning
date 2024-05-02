@@ -1,4 +1,4 @@
-@import '../variables';
+@import '../../variables';
 
 .home {
     display: flex;
@@ -51,6 +51,14 @@
                 transparent 32px),
             linear-gradient(186deg, $primary_color-600, $primary_color-900);
 
+        @media (max-width: 768px) {
+            min-height: 35vh;
+        }
+
+        @media (max-width: 480px) {
+            min-height: 20vh;
+        }
+
         .banner {
             max-width: 960px;
             text-align: center;
@@ -60,6 +68,10 @@
 
             h1 {
                 font-size: 50px;
+
+                @media (max-width: 480px) {
+                    font-size: 35px;
+                }
             }
         }
     }
@@ -145,6 +157,15 @@
             cursor: pointer;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
 
+            @media (max-width: 768px) {
+                width: calc(33.33% - 20px);
+            }
+
+
+            @media (max-width: 480px) {
+                width: calc(50% - 20px);
+            }
+
             &:hover {
                 transform: translateY(-5px);
                 box-shadow: 0 6px 12px $primary_color-700;
@@ -154,6 +175,14 @@
                 font-size: 1.2rem;
                 color: #333;
                 text-align: center;
+
+                @media (max-width: 768px) {
+                    font-size: 1.1rem;
+                }
+
+                @media (max-width: 480px) {
+                    font-size: 1rem;
+                }
             }
         }
     }

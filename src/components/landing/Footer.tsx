@@ -31,7 +31,6 @@ function Footer() {
                 <div className="footer-section contact">
                     <h3>CONTACT</h3>
                     <p><a href="#">hola@brian-novoa.com</a></p>
-                    {/* Añade aquí los iconos de redes sociales */}
                 </div>
             </div>
             <div className="footer-bottom">
