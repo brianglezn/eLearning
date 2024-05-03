@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { Dropdown } from 'primereact/dropdown';
 
 import Header from "../../components/landing/Header";
@@ -18,10 +19,16 @@ export type Course = {
     category: string;
 };
 
+function useQuery() {
+    return new URLSearchParams(useLocation().search);
+}
+
 function Courses() {
     const [courses, setCourses] = useState<Course[]>([]);
     const [filteredCourses, setFilteredCourses] = useState<Course[]>([]);
-    const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+    const navigate = useNavigate();
+    const query = useQuery();
+    const selectedCategoryFromURL = query.get('category');
 
     useEffect(() => {
         const fetchCourses = async () => {
@@ -147,7 +154,6 @@ function Courses() {
                     category: 'Digital Marketing',
                 }
             ];
-
             setCourses(fetchedCourses);
         };
 
@@ -155,12 +161,13 @@ function Courses() {
     }, []);
 
     useEffect(() => {
-        const filtered = selectedCategory ? courses.filter(course => course.category === selectedCategory) : courses;
+        const filtered = selectedCategoryFromURL ? courses.filter(course => course.category === selectedCategoryFromURL) : courses;
         setFilteredCourses(filtered);
-    }, [courses, selectedCategory]);
+    }, [courses, selectedCategoryFromURL]);
 
     const handleCategoryChange = (e: { value: string | null }) => {
-        setSelectedCategory(e.value);
+        const category = e.value;
+        navigate(category ? `/courses?category=${encodeURIComponent(category)}` : '/courses');
     };
 
     const categories = Array.from(new Set(courses.map(course => course.category)));
@@ -171,7 +178,7 @@ function Courses() {
             <Header />
             <div className="coursesPage">
                 <Dropdown
-                    value={selectedCategory}
+                    value={selectedCategoryFromURL}
                     options={categoryOptions}
                     onChange={handleCategoryChange}
                     placeholder="All"
@@ -182,7 +189,6 @@ function Courses() {
                     ))}
                 </div>
             </div>
-
             <Footer />
         </>
     );

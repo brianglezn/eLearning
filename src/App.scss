@@ -901,7 +901,8 @@ body {
         cursor: pointer;
         position: relative;
         user-select: none;
-        width: 100%;
+        width: auto;
+        max-width: 1200px;
         padding: 10px;
         box-shadow: $shadow-color-primary 0px 1px 4px;
     }

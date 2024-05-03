@@ -90,7 +90,6 @@
         .p-carousel-container {
             display: flex;
             align-items: stretch;
-            gap: 20px;
 
             .p-carousel-items-container {
                 display: flex;
@@ -112,14 +111,14 @@
             flex-direction: column;
             background-color: #fff;
             border-radius: 8px;
-            padding: 10px;
             min-height: 25rem;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             cursor: pointer;
+            margin: 0 5px;
 
             img {
-                border-radius: 4px;
+                border-radius: 8px 8px 0 0;
                 margin-bottom: 8px;
             }
 
@@ -173,7 +172,7 @@
                 box-shadow: 0 6px 12px $primary_color-700;
             }
 
-            h3 {
+            a {
                 font-size: 1.2rem;
                 color: #333;
                 text-align: center;

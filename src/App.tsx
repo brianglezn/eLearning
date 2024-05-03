@@ -7,6 +7,7 @@ import Login from './pages/landing/Login';
 import Register from './pages/landing/Register';
 import ForgotPassword from './pages/landing/ForgotPassword';
 import ForgotPasswordToken from './pages/landing/ForgotPasswordToken';
+import DashBoard from './pages/dashBoard/DashBoard';
 
 import './App.scss'
 
@@ -21,6 +22,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/forgotpassword" element={<ForgotPassword />} />
         <Route path="/forgotpasswordtoken" element={<ForgotPasswordToken />} />
+        <Route path="/dashboard" element={<DashBoard />} />
       </Routes>
     </Router>
   );

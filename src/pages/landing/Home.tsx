@@ -146,15 +146,17 @@ function Home() {
   ];
 
   const categories: Category[] = [
-    { id: 1, name: 'Desarrollo Web' },
-    { id: 2, name: 'Ciencia de Datos' },
-    { id: 3, name: 'Inteligencia Artificial' },
-    { id: 4, name: 'Diseño Gráfico' },
-    { id: 5, name: 'Marketing Digital' },
-    { id: 6, name: 'Ciberseguridad' },
-    { id: 7, name: 'Desarrollo de Videojuegos' },
-    { id: 9, name: 'Desarrollo de Apps Móviles' },
-    { id: 10, name: 'Blockchain y Criptomonedas' },
+    { id: 1, name: 'Web Development' },
+    { id: 2, name: 'Backend Development' },
+    { id: 3, name: 'UX/UI Design' },
+    { id: 4, name: 'Data Science' },
+    { id: 5, name: 'Full Stack Development' },
+    { id: 6, name: 'Programming' },
+    { id: 7, name: 'Artificial Intelligence' },
+    { id: 8, name: 'Mobile Development' },
+    { id: 9, name: 'Cybersecurity' },
+    { id: 10, name: 'Cloud Computing' },
+    { id: 11, name: 'Digital Marketing' }
   ];
 
   const responsiveOptions = [
@@ -214,7 +216,9 @@ function Home() {
           <div className="categories">
             {categories.map((category) => (
               <div key={category.id} className="category-card">
-                <h3>{category.name}</h3>
+                <a href={`/courses?category=${category.name}`}>
+                  <h3>{category.name}</h3>
+                </a>
               </div>
             ))}
           </div>
