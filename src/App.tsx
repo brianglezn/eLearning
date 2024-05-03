@@ -1,8 +1,5 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
-// import "primereact/resources/themes/lara-light-cyan/theme.css";
-// import "primereact/resources/themes/lara-light-blue/theme.css";
-
 import Home from './pages/landing/Home';
 import Courses from './pages/landing/Courses';
 import Community from './pages/landing/Community';
