@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Dropdown } from 'primereact/dropdown';
 
 import Header from "../../components/landing/Header";
 import CourseCard from "../../components/courses/CourseCard";
@@ -153,30 +154,27 @@ function Courses() {
     }, []);
 
     useEffect(() => {
-        if (selectedCategory) {
-            const filtered = courses.filter(course => course.category === selectedCategory);
-            setFilteredCourses(filtered);
-        } else {
-            setFilteredCourses(courses);
-        }
+        const filtered = selectedCategory ? courses.filter(course => course.category === selectedCategory) : courses;
+        setFilteredCourses(filtered);
     }, [courses, selectedCategory]);
 
-    const handleCategoryChange = (category: string | null) => {
-        setSelectedCategory(category === selectedCategory ? null : category);
+    const handleCategoryChange = (e: { value: string | null }) => {
+        setSelectedCategory(e.value);
     };
+
+    const categories = Array.from(new Set(courses.map(course => course.category)));
+    const categoryOptions = [{ label: 'All', value: null }, ...categories.map(category => ({ label: category, value: category }))];
 
     return (
         <>
             <Header />
             <div className="coursesPage">
-                <div className="categories">
-                    <button onClick={() => handleCategoryChange(null)}>All</button>
-                    {Array.from(new Set(courses.map(course => course.category))).map(category => (
-                        <button key={category} onClick={() => handleCategoryChange(category)}>
-                            {category}
-                        </button>
-                    ))}
-                </div>
+                <Dropdown
+                    value={selectedCategory}
+                    options={categoryOptions}
+                    onChange={handleCategoryChange}
+                    placeholder="All"
+                />
                 <div className="coursesList">
                     {filteredCourses.map(course => (
                         <CourseCard key={course.id} course={course} />
