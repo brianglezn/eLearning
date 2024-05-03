@@ -18,8 +18,18 @@
         max-width: 1200px;
         padding: 20px 50px;
 
+        @media (max-width: 768px) {
+            flex-direction: column;
+            gap: 2rem;
+        }
+
         .footer-section {
             margin-right: 20px;
+
+            @media (max-width: 768px) {
+                margin-right: 0;
+                text-align: center;
+            }
 
             h3 {
                 margin-bottom: 10px;
@@ -34,14 +44,13 @@
                     color: $primary_text;
                     text-decoration: none;
                     text-decoration-color: $primary_color-200;
-                    transition: color 0.5, text-decoration-color 0.5s;
+                    transition: color 0.3s, text-decoration-color 0.3s;
 
                     &:hover {
                         color: $primary_color-600;
                         text-decoration: underline;
                         text-decoration-color: $primary_color-600;
                     }
-
                 }
             }
 
@@ -61,8 +70,21 @@
             }
         }
 
-        .about,
-        .community,
+        .menus {
+            display: flex;
+            flex-direction: row;
+            flex: 3;
+
+            @media (max-width: 768px) {
+                gap: 4rem;
+            }
+
+            .about,
+            .community {
+                flex: 1;
+            }
+        }
+
         .contact {
             flex: 1;
         }

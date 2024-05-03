@@ -40,7 +40,6 @@
         min-height: 60vh;
 
 
-
         .formContainer {
             display: flex;
             flex-direction: column;
@@ -60,7 +59,7 @@
 
             @media (max-width: 480px) {
                 width: 85%;
-                padding: 3rem 1.5rem;
+                padding: 3rem 1.8rem;
             }
 
             .formTitle {
@@ -68,6 +67,7 @@
                 color: $primary_color-500;
                 font-size: 2.5rem;
                 margin-bottom: 2rem;
+                text-align: center;
 
                 @media (max-width: 768px) {
                     font-size: 2rem;
