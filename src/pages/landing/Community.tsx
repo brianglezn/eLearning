@@ -1,5 +1,7 @@
 import Header from "../../components/landing/Header";
 
+import './Community.scss';
+
 function Community() {
     return (
         <div>

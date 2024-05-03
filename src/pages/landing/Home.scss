@@ -146,6 +146,10 @@
         flex-wrap: wrap;
         gap: 20px;
 
+        @media (max-width: 768px) {
+            justify-content: center;
+        }
+
         .category-card {
             display: flex;
             justify-content: center;
