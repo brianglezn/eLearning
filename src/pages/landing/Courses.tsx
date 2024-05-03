@@ -3,6 +3,7 @@ import { Dropdown } from 'primereact/dropdown';
 
 import Header from "../../components/landing/Header";
 import CourseCard from "../../components/courses/CourseCard";
+import Footer from '../../components/landing/Footer';
 
 import './Courses.scss';
 
@@ -181,6 +182,8 @@ function Courses() {
                     ))}
                 </div>
             </div>
+
+            <Footer />
         </>
     );
 }
