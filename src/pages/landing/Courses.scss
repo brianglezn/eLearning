@@ -51,12 +51,15 @@
         padding: 20px;
         width: 90%;
         max-width: 1200px;
+    }
+}
 
-        @media (max-width: 768px) {
+@media (max-width: 480px) {
+    .coursesPage {
+        .coursesList {
             flex-direction: column;
             align-items: center;
-            width: 100%;
+            width: 98%;
         }
     }
-
 }

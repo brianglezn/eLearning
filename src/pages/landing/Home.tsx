@@ -2,6 +2,7 @@ import { Carousel } from 'primereact/carousel';
 
 import Footer from '../../components/landing/Footer';
 import Header from '../../components/landing/Header';
+
 import './Home.scss';
 
 type Course = {
@@ -184,12 +185,12 @@ function Home() {
 
   const courseTemplate = (course: Course) => {
     return (
-      <div className="course-card">
+      <div className="coursesCard">
         <img src={course.image} alt={course.title} style={{ width: '100%', display: 'block' }} />
-        <div className="course-details">
+        <div className="coursesDetails">
           <h3 >{course.title}</h3>
           <p >{course.description}</p>
-          <p className='course-card--price'>{course.price}</p>
+          <p className='coursesCard-price'>{course.price}</p>
           <p >{`Rating: ${course.rating} (${course.reviews} reviews)`}</p>
         </div>
       </div>
@@ -215,7 +216,7 @@ function Home() {
           <h2>Categorías</h2>
           <div className="categories">
             {categories.map((category) => (
-              <div key={category.id} className="category-card">
+              <div key={category.id} className="categoryCard">
                 <a href={`/courses?category=${category.name}`}>
                   <h3>{category.name}</h3>
                 </a>

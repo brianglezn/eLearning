@@ -51,13 +51,6 @@
                 transparent 32px),
             linear-gradient(186deg, $primary_color-600, $primary_color-900);
 
-        @media (max-width: 768px) {
-            min-height: 35vh;
-        }
-
-        @media (max-width: 480px) {
-            min-height: 20vh;
-        }
 
         .banner {
             max-width: 960px;
@@ -68,10 +61,6 @@
 
             h1 {
                 font-size: 50px;
-
-                @media (max-width: 480px) {
-                    font-size: 35px;
-                }
             }
         }
     }
@@ -106,7 +95,7 @@
             }
         }
 
-        .course-card {
+        .coursesCard {
             display: flex;
             flex-direction: column;
             background-color: #fff;
@@ -122,7 +111,7 @@
                 margin-bottom: 8px;
             }
 
-            .course-details {
+            .coursesDetails {
                 display: flex;
                 flex-direction: column;
                 padding: 0 10px;
@@ -132,7 +121,7 @@
                     margin-bottom: 0;
                 }
 
-                .course-card--price {
+                .coursesCard-price {
                     font-weight: 600;
                     color: #43783f;
                 }
@@ -146,11 +135,7 @@
         flex-wrap: wrap;
         gap: 20px;
 
-        @media (max-width: 768px) {
-            justify-content: center;
-        }
-
-        .category-card {
+        .categoryCard {
             display: flex;
             justify-content: center;
             align-items: center;
@@ -163,14 +148,6 @@
             cursor: pointer;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
 
-            @media (max-width: 768px) {
-                width: calc(33.33% - 20px);
-            }
-
-            @media (max-width: 480px) {
-                width: calc(50% - 20px);
-            }
-
             &:hover {
                 transform: translateY(-5px);
                 box-shadow: 0 6px 12px $primary_color-700;
@@ -180,12 +157,49 @@
                 font-size: 1.2rem;
                 color: #333;
                 text-align: center;
+            }
+        }
+    }
+}
 
-                @media (max-width: 768px) {
+
+
+@media (max-width: 768px) {
+    .home {
+        .main {
+            min-height: 35vh;
+        }
+
+        .categories {
+            justify-content: center;
+
+            .categoryCard {
+                width: calc(33.33% - 20px);
+
+                a {
                     font-size: 1.1rem;
                 }
+            }
+        }
+    }
 
-                @media (max-width: 480px) {
+}
+
+@media (max-width: 480px) {
+    .home {
+        .main {
+            min-height: 0vh;
+
+            .banner h1 {
+                font-size: 35px;
+            }
+        }
+
+        .categories {
+            .categoryCard {
+                width: calc(50% - 20px);
+
+                a {
                     font-size: 1rem;
                 }
             }

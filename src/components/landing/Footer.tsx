@@ -37,7 +37,7 @@ function Footer() {
                 </div>
             </div>
             <div className="footer-bottom">
-                <p>© {currentYear} All Rights Reserved. <a href="https://brian-novoa.com/">brian-novoa</a>®</p>
+                <p>© {currentYear} All Rights Reserved. <a href="https://brian-novoa.com/">Brian Novoa</a>®</p>
             </div>
         </footer>
     );
