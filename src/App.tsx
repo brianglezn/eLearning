@@ -8,6 +8,7 @@ import Register from './pages/landing/Register';
 import ForgotPassword from './pages/landing/ForgotPassword';
 import ForgotPasswordToken from './pages/landing/ForgotPasswordToken';
 import DashBoard from './pages/dashBoard/DashBoard';
+import CourseX from './pages/landing/CourseX';
 
 import './App.scss'
 
@@ -17,6 +18,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/courses" element={<Courses />} />
+        <Route path="/courses/:id" element={<CourseX />} />
         <Route path="/community" element={<Community />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />

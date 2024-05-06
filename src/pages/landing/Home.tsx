@@ -1,4 +1,5 @@
 import { Carousel } from 'primereact/carousel';
+import { Rating } from 'primereact/rating';
 
 import Footer from '../../components/landing/Footer';
 import Header from '../../components/landing/Header';
@@ -191,7 +192,8 @@ function Home() {
           <h3 >{course.title}</h3>
           <p >{course.description}</p>
           <p className='coursesCard-price'>{course.price}</p>
-          <p >{`Rating: ${course.rating} (${course.reviews} reviews)`}</p>
+          <Rating value={parseFloat(course.rating)} readOnly cancel={false} />
+          <span>{`(${course.reviews} reviews)`}</span>
         </div>
       </div>
     );
@@ -213,7 +215,7 @@ function Home() {
           <h2>Popular Courses</h2>
           <Carousel value={fetchedCourses} numVisible={4} numScroll={4} itemTemplate={courseTemplate} responsiveOptions={responsiveOptions} circular />
 
-          <h2>Categorías</h2>
+          <h2>Categories</h2>
           <div className="categories">
             {categories.map((category) => (
               <div key={category.id} className="categoryCard">

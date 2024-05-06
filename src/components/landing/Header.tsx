@@ -22,8 +22,9 @@ function Header() {
                     </ul>
                 </nav>
 
-                <div className="login">
-                    <a href="/login">Log In</a>
+                <div className="btn">
+                    <span className="material-symbols-rounded">shopping_cart</span>
+                    <a className="login" href="/login">Log In</a>
                 </div>
 
                 <div className="sideMenu">
@@ -33,6 +34,9 @@ function Header() {
                                 <li><a href="/">Home</a></li>
                                 <li><a href="/courses">Courses</a></li>
                                 <li><a href="/community">Community</a></li>
+                            </ul>
+                            <ul>
+                                <li><a href="#">Cart</a></li>
                                 <li><a href="/login">Log In</a></li>
                             </ul>
                         </div>

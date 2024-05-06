@@ -1,4 +1,5 @@
 import { Course } from '../../pages/landing/Courses';
+import { Rating } from 'primereact/rating';
 
 import './CourseCard.scss';
 
@@ -9,7 +10,8 @@ function CourseCard({ course }: { course: Course }) {
             <h3>{course.title}</h3>
             <p>{course.description}</p>
             <p className="courseCard-price">{course.price}</p>
-            <p>{course.rating}/5 ({course.reviews} reviews)</p>
+            <Rating value={parseFloat(course.rating)} readOnly cancel={false} />
+            <span>{`(${course.reviews} reviews)`}</span>
         </div>
     );
 }

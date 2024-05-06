@@ -57,12 +57,24 @@
         }
     }
 
-    .login {
+    .btn {
         flex: 1;
         display: flex;
         justify-content: right;
+        align-items: center;
+        gap: 20px;
 
-        a {
+        span {
+            padding: 1px 0;
+            cursor: pointer;
+            transition: color 0.2s;
+
+            &:hover {
+                color: $primary_color-700;
+            }
+        }
+
+        a.login {
             padding: 12px 30px;
             background-color: $primary_color-600;
             color: white;
@@ -114,7 +126,7 @@
             }
         }
 
-        .login {
+        .btn {
             display: none;
         }
 

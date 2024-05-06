@@ -12,7 +12,8 @@
         padding: 20px;
         border-radius: 30px;
         min-height: 50vh;
-        width: 95%;
+        width: 100%;
+        max-width: 1200px;
         background-image: repeating-linear-gradient(96deg,
                 #f5eef900 0px,
                 #f5eef900 1px,
@@ -162,12 +163,11 @@
     }
 }
 
-
-
 @media (max-width: 768px) {
     .home {
         .main {
             min-height: 35vh;
+            width: 95%;
         }
 
         .categories {
@@ -188,8 +188,6 @@
 @media (max-width: 480px) {
     .home {
         .main {
-            min-height: 0vh;
-
             .banner h1 {
                 font-size: 35px;
             }
