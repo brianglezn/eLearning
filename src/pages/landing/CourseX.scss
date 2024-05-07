@@ -30,6 +30,12 @@
                 font-weight: 600;
                 color: #43783f;
             }
+
+            .courseMain-ratingReviewsContainer {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+            }
         }
 
         .image {

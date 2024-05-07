@@ -57,8 +57,8 @@ function Home() {
         <div className="carouselDetails">
           <h3>{course.title}</h3>
           <p>{course.description}</p>
-          <p className='carouselCard-price'>{course.price}</p>
-          <div className="ratingAndReviews">
+          <p className='carouselDetails-price'>{course.price}</p>
+          <div className="carouselDetails-ratingAndReviews">
             <Rating value={parseFloat(course.rating)} readOnly cancel={false} />
             <span>{`(${course.reviews})`}</span>
           </div>

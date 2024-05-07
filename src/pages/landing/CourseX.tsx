@@ -26,8 +26,10 @@ function CourseX() {
                     </div>
                     <div>
                         <p className="courseMain-price">{course.price}</p>
-                        <Rating value={parseFloat(course.rating)} readOnly cancel={false} />
-                        <span>{`(${course.reviews} reviews)`}</span>
+                        <div className="courseMain-ratingReviewsContainer">
+                            <Rating value={parseFloat(course.rating)} readOnly cancel={false} />
+                            <span>{`(${course.reviews})`}</span>
+                        </div>
                     </div>
                 </div>
                 <div className="image">
