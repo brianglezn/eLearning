@@ -1,16 +1,3 @@
-export type Episode = {
-    episode: number;
-    title: string;
-    description: string;
-    video_url: string;
-};
-
-export type Chapter = {
-    chapter: number;
-    title: string;
-    episodes: Episode[];
-};
-
 export type Course = {
     id: number;
     title: string;
@@ -20,5 +7,14 @@ export type Course = {
     rating: string;
     reviews: number;
     category: string;
-    chapters: Chapter[];
+    chapters: {
+        chapter: number;
+        title: string;
+        episodes: {
+            episode: number;
+            title: string;
+            description: string;
+            video_url: string;
+        }[];
+    }[];
 };

@@ -1,11 +1,20 @@
-import { Course } from '../../helpers/types';
+import { useNavigate } from 'react-router-dom';
 import { Rating } from 'primereact/rating';
+
+import { Course } from '../../helpers/types';
 
 import './CourseCard.scss';
 
 function CourseCard({ course }: { course: Course }) {
+
+    const navigate = useNavigate();
+
+    const handleCourseClick = () => {
+        navigate(`/courses/${course.id}`);
+    };
+
     return (
-        <div className="courseCard">
+        <div className="courseCard" onClick={handleCourseClick}>
             <img src={course.image} alt={course.title} style={{ width: '100%', display: 'block' }} />
             <h3>{course.title}</h3>
             <p>{course.description}</p>

@@ -2,25 +2,13 @@ import { useParams } from 'react-router-dom';
 import { Rating } from 'primereact/rating';
 
 import Header from '../../components/landing/Header';
+import getCourseById from '../../helpers/getCoursesById';
 
 import './CourseX.scss';
 
-const courses = [
-    {
-        id: 1,
-        title: 'Modern Front-End Development',
-        description: 'Master HTML, CSS, and JavaScript to build responsive and dynamic websites.',
-        image: 'https://res.cloudinary.com/dz0mwxb0v/image/upload/v1714405656/eLearning/courses/curso_py.jpg',
-        price: '29.99 €',
-        rating: '4.8',
-        reviews: 3487,
-        category: 'Web Development',
-    }
-];
-
 function CourseX() {
     const { id } = useParams<{ id?: string }>();
-    const course = courses.find(c => c.id === parseInt(id ?? "0"));
+    const course = getCourseById(parseInt(id ?? "0"));
 
     if (!course) {
         return <div>Course not found!</div>;

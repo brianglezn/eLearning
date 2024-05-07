@@ -1,8 +1,27 @@
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 import Footer from '../../components/landing/Footer';
 
 import './Login_Register.scss';
+import usersData from '../../bdd/users.json';
 
 function Login() {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const navigate = useNavigate();
+
+    const handleLogin = (event: React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+        const user = usersData.find(user => user.email === email && user.password === password);
+        if (user) {
+            alert('Login successful!');
+            navigate(-1);
+        } else {
+            alert('Invalid credentials!');
+        }
+    };
+
     return (
         <div className='login'>
             <header className="header">
@@ -17,17 +36,21 @@ function Login() {
             <section className="content">
                 <div className="formContainer">
                     <h2 className='formTitle'>LOG IN</h2>
-                    <form className='form' action="">
+                    <form className='form' onSubmit={handleLogin}>
                         <input
                             className="formEmail"
                             type="email"
                             placeholder="E-mail"
+                            value={email}
+                            onChange={e => setEmail(e.target.value)}
                             required
                         />
                         <input
                             className="formPassword"
-                            type={"password"}
+                            type="password"
                             placeholder="Password"
+                            value={password}
+                            onChange={e => setPassword(e.target.value)}
                             required
                         />
                         <a className="formForgot" href="/forgotpassword">Forgot password?</a>

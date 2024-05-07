@@ -3,8 +3,8 @@ import coursesData from '../bdd/courses.json';
 const getAllCourses = () => {
     return coursesData.map(course => ({
         ...course,
-        id: course.course,
-        rating: course.rating.toString()
+        id: course.id,
+        rating: parseFloat(course.rating).toString() 
     }));
 }
 
