@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Carousel } from 'primereact/carousel';
 import { Rating } from 'primereact/rating';
 
@@ -12,6 +13,7 @@ import './Home.scss';
 function Home() {
   const [courses, setCourses] = useState<Course[]>([]);
   const [categories, setCategories] = useState<string[]>([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const formattedCourses = getAllCourses();
@@ -44,20 +46,26 @@ function Home() {
     }
   ];
 
-  const courseTemplate = (course: Course) => (
-    <div className="coursesCard">
-      <img src={course.image} alt={course.title} style={{ width: '100%', display: 'block' }} />
-      <div className="coursesDetails">
-        <h3>{course.title}</h3>
-        <p>{course.description}</p>
-        <p className='coursesCard-price'>{course.price}</p>
-        <div className="ratingAndReviews">
-          <Rating value={parseFloat(course.rating)} readOnly cancel={false} />
-          <span>{`(${course.reviews})`}</span>
+  const courseTemplate = (course: Course) => {
+    const handleCourseClick = () => {
+      navigate(`/courses/${course.id}`);
+    };
+
+    return (
+      <div className="carouselCard" onClick={handleCourseClick}>
+        <img src={course.image} alt={course.title} style={{ width: '100%', display: 'block' }} />
+        <div className="carouselDetails">
+          <h3>{course.title}</h3>
+          <p>{course.description}</p>
+          <p className='carouselCard-price'>{course.price}</p>
+          <div className="ratingAndReviews">
+            <Rating value={parseFloat(course.rating)} readOnly cancel={false} />
+            <span>{`(${course.reviews})`}</span>
+          </div>
         </div>
       </div>
-    </div>
-  );
+    );
+  };
 
   return (
     <>
