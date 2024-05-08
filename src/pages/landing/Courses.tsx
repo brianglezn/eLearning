@@ -22,8 +22,13 @@ function Courses() {
     const selectedCategoryFromURL = query.get('category');
 
     useEffect(() => {
-        setCourses(getAllCourses());
+        const fetchCourses = async () => {
+            const coursesData = await getAllCourses();
+            setCourses(coursesData);
+        };
+        fetchCourses();
     }, []);
+    
 
     useEffect(() => {
         const filtered = selectedCategoryFromURL ? courses.filter(course => course.category === selectedCategoryFromURL) : courses;

@@ -1,17 +1,32 @@
 import { useParams } from 'react-router-dom';
 import { Rating } from 'primereact/rating';
+import { useEffect, useState } from 'react';
 
 import Header from '../../components/landing/Header';
 import getCourseById from '../../helpers/getCoursesById';
+import { Course } from '../../helpers/types';
 
 import './CourseX.scss';
 
 function CourseX() {
     const { id } = useParams<{ id?: string }>();
-    const course = getCourseById(parseInt(id ?? "0"));
+    const [course, setCourse] = useState<Course | null>(null);
+
+    useEffect(() => {
+        const fetchCourse = async () => {
+            try {
+                const courseData = await getCourseById(parseInt(id ?? "0"));
+                setCourse(courseData);
+            } catch (error) {
+                console.error('Error fetching course:', error);
+            }
+        };
+
+        fetchCourse();
+    }, [id]);
 
     if (!course) {
-        return <div>Course not found!</div>;
+        return <div>Loading...</div>;
     }
 
     return (
@@ -39,6 +54,7 @@ function CourseX() {
                 </div>
             </div>
             <div className="courseContent">
+                {/* Aquí puedes renderizar el contenido del curso */}
             </div>
         </div>
     );

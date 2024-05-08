@@ -4,23 +4,33 @@ import { useNavigate } from 'react-router-dom';
 import Footer from '../../components/landing/Footer';
 
 import './Login_Register.scss';
-import usersData from '../../bdd/users.json';
 
 function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
 
-    const handleLogin = (event: React.FormEvent<HTMLFormElement>) => {
+    const handleLogin = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        const user = usersData.find(user => user.email === email && user.password === password);
-        if (user) {
-            alert('Login successful!');
-            navigate(-1);
-        } else {
-            alert('Invalid credentials!');
+        try {
+            const response = await fetch('http://localhost:3000/users');
+            if (!response.ok) {
+                throw new Error('Failed to fetch users');
+            }
+            const users = await response.json();
+            const user = users.find((user: any) => user.email === email && user.password === password);
+            if (user) {
+                alert('Login successful!');
+                navigate(-1);
+            } else {
+                alert('Invalid credentials!');
+            }
+        } catch (error) {
+            console.error('Error fetching users:', error);
+            alert('An error occurred. Please try again later.');
         }
     };
+
 
     return (
         <div className='login'>

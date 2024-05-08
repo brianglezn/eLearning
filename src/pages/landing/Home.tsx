@@ -16,11 +16,14 @@ function Home() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const formattedCourses = getAllCourses();
-    setCourses(formattedCourses);
+    const fetchAndSetCourses = async () => {
+      const formattedCourses: Course[] = await getAllCourses();
+      setCourses(formattedCourses);
 
-    const uniqueCategories = Array.from(new Set(formattedCourses.map(course => course.category)));
-    setCategories(uniqueCategories);
+      const uniqueCategories = Array.from(new Set(formattedCourses.map(course => course.category)));
+      setCategories(uniqueCategories);
+    };
+    fetchAndSetCourses();
   }, []);
 
   const responsiveOptions = [

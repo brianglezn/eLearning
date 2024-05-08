@@ -1,9 +1,23 @@
 import { Course } from './types';
 
-import coursesData from '../bdd/courses.json';
+const getCourseById = async (id: number): Promise<Course | null> => {
+    try {
+        const response = await fetch(`http://localhost:3000/courses/${id}`);
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        const courseData = await response.json();
+        const formattedCourse = {
+            ...courseData,
+            id: courseData.id,
+            rating: parseFloat(courseData.rating).toString()
+        };
 
-const getCourseById = (id: number): Course | undefined => {
-    return coursesData.find(course => course.id === id);
+        return formattedCourse;
+    } catch (error) {
+        console.error('There was a problem with the fetch operation:', error);
+        return null;
+    }
 }
 
 export default getCourseById;

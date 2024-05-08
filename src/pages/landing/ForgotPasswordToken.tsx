@@ -1,4 +1,5 @@
 import Footer from '../../components/landing/Footer';
+
 import './Login_Register.scss';
 
 function ForgotPasswordToken() {
