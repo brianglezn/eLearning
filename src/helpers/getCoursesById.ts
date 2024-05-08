@@ -2,7 +2,7 @@ import { Course } from './types';
 
 const getCourseById = async (id: number): Promise<Course | null> => {
     try {
-        const response = await fetch(`http://localhost:3000/courses/${id}`);
+        const response = await fetch(`https://elearning-back.onrender.com/courses/${id}`);
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }

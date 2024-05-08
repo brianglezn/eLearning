@@ -1,6 +1,6 @@
 const getAllCourses = async () => {
     try {
-        const response = await fetch('http://localhost:3000/courses');
+        const response = await fetch('https://elearning-back.onrender.com/courses');
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }
