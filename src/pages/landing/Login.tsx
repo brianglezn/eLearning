@@ -13,7 +13,7 @@ function Login() {
     const handleLogin = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         try {
-            const response = await fetch('http://localhost:3000/users');
+            const response = await fetch('https://elearning-back.onrender.com/users');
             if (!response.ok) {
                 throw new Error('Failed to fetch users');
             }
