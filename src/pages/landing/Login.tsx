@@ -23,10 +23,9 @@ function Login() {
 
             if (response.ok) {
                 await response.json();
-                alert('Login successful!');
                 navigate('/dashboard');
             } else if (response.status === 401) {
-                alert('Invalid credentials. Please try again.');
+                console.log('Invalid credentials. Please try again.');
             } else {
                 throw new Error(`Login failed with status: ${response.status}`);
             }

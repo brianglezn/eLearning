@@ -30,7 +30,6 @@ function Register() {
 
             if (response.ok) {
                 await response.json();
-                alert('Registration successful!');
                 navigate('/login');
             } else {
                 const errorResponse = await response.json();
@@ -38,7 +37,6 @@ function Register() {
             }
         } catch (error) {
             console.error('Registration error:', error);
-            alert('An error occurred during registration. Please try again.');
         }
     };
 
