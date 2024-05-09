@@ -21,16 +21,18 @@ function Login() {
                 body: JSON.stringify({ email, password })
             });
 
-            if (!response.ok) {
-                throw new Error('Login failed');
+            if (response.ok) {
+                await response.json();
+                alert('Login successful!');
+                navigate('/dashboard');
+            } else if (response.status === 401) {
+                alert('Invalid credentials. Please try again.');
+            } else {
+                throw new Error(`Login failed with status: ${response.status}`);
             }
-
-            await response.json();
-            alert('Login successful!');
-            navigate(-1);
         } catch (error) {
             console.error('Error during login:', error);
-            alert('Invalid credentials or an error occurred. Please try again later.');
+            alert('An error occurred during login. Please try again later.');
         }
     };
 
@@ -78,3 +80,4 @@ function Login() {
 }
 
 export default Login;
+
