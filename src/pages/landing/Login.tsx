@@ -13,24 +13,26 @@ function Login() {
     const handleLogin = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         try {
-            const response = await fetch('https://elearning-back.onrender.com/users');
+            const response = await fetch('https://elearning-back.onrender.com/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ email, password })
+            });
+
             if (!response.ok) {
-                throw new Error('Failed to fetch users');
+                throw new Error('Login failed');
             }
-            const users = await response.json();
-            const user = users.find((user: any) => user.email === email && user.password === password);
-            if (user) {
-                alert('Login successful!');
-                navigate(-1);
-            } else {
-                alert('Invalid credentials!');
-            }
+
+            await response.json();
+            alert('Login successful!');
+            navigate(-1);
         } catch (error) {
-            console.error('Error fetching users:', error);
-            alert('An error occurred. Please try again later.');
+            console.error('Error during login:', error);
+            alert('Invalid credentials or an error occurred. Please try again later.');
         }
     };
-
 
     return (
         <div className='login'>

@@ -1,8 +1,47 @@
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Footer from '../../components/landing/Footer';
-
 import './Login_Register.scss';
 
 function Register() {
+    const [username, setUsername] = useState('');
+    const [name, setName] = useState('');
+    const [surname, setSurname] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const navigate = useNavigate();
+
+    const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+        try {
+            const response = await fetch('https://elearning-back.onrender.com/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    username,
+                    name,
+                    surname,
+                    email,
+                    password
+                })
+            });
+
+            if (response.ok) {
+                await response.json();
+                alert('Registration successful!');
+                navigate('/login');
+            } else {
+                const errorResponse = await response.json();
+                throw new Error(errorResponse.message || 'Failed to register');
+            }
+        } catch (error) {
+            console.error('Registration error:', error);
+            alert('An error occurred during registration. Please try again.');
+        }
+    };
+
     return (
         <div className='login'>
             <header className="header">
@@ -17,35 +56,45 @@ function Register() {
             <section className="content">
                 <div className="formContainer">
                     <h2 className='formTitle'>REGISTER</h2>
-                    <form className='form' action="">
+                    <form className='form' onSubmit={handleSubmit}>
                         <input
                             className="formUsername"
-                            type="username"
+                            type="text"
                             placeholder="Username"
+                            value={username}
+                            onChange={e => setUsername(e.target.value)}
                             required
                         />
                         <input
                             className="formName"
-                            type="name"
+                            type="text"
                             placeholder="Name"
+                            value={name}
+                            onChange={e => setName(e.target.value)}
                             required
                         />
                         <input
                             className="formSurname"
-                            type="surname"
+                            type="text"
                             placeholder="Surname"
+                            value={surname}
+                            onChange={e => setSurname(e.target.value)}
                             required
                         />
                         <input
                             className="formEmail"
                             type="email"
                             placeholder="E-mail"
+                            value={email}
+                            onChange={e => setEmail(e.target.value)}
                             required
                         />
                         <input
                             className="formPassword"
-                            type={"password"}
+                            type="password"
                             placeholder="Password"
+                            value={password}
+                            onChange={e => setPassword(e.target.value)}
                             required
                         />
                         <button className="formSubmit" type="submit">Let's go!</button>

@@ -18,3 +18,12 @@ export type Course = {
         }[];
     }[];
 };
+
+export type User = {
+    id: number;
+    username: string;
+    email: string;
+    password: string;
+    role: string;
+    courses_purchased: number[];
+};
