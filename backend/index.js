@@ -16,7 +16,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/ping', (req, res) => {
-    res.status(200).send('pong');
+    res.status(200).json({ message: 'Pong' });
 });
 
 const PORT = 3000;
