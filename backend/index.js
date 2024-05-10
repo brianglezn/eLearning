@@ -19,7 +19,7 @@ app.get('/ping', (req, res) => {
     res.status(200).send('pong');
 });
 
-const PORT = process.env.PORT || 3000;
+const PORT = 3000;
 app.listen(PORT, () => {
     console.log(`Servidor corriendo en http://localhost:${PORT}`);
 });
