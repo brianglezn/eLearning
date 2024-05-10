@@ -30,6 +30,9 @@
 
         .dashMenu {
             flex: 2;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
         }
 
         .dashBtn {
@@ -43,7 +46,7 @@
                 cursor: pointer;
             }
 
-            span {
+            >span {
                 cursor: pointer;
 
                 &:hover {
@@ -100,17 +103,29 @@
     }
 }
 
-@media (max-width: 768px) {}
+@media (max-width: 768px) {
+    .dashBoard {
+        .dashHeader {
+            .dashMenu {
+                display: none;
+            }
+        }
+    }
+}
 
 
 @media (max-width: 480px) {
-    .dashMenu {
-        display: none;
-    }
+    .dashBoard {
+        .dashHeader {
+            .dashMenu {
+                display: none;
+            }
 
-    .dashBtn {
-        >span {
-            display: none;
+            .dashBtn {
+                >span {
+                    display: none;
+                }
+            }
         }
     }
 }

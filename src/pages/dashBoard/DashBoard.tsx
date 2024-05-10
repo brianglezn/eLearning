@@ -16,12 +16,16 @@ function DashBoard() {
                     <img src="https://res.cloudinary.com/dz0mwxb0v/image/upload/v1714402089/eLearning/logo_eLearning.png" alt="Logo" />
                     <h2>eLearning</h2>
                 </div>
-                <div className="dashMenu">.</div>
+                <div className="dashMenu">
+                    <a href="#">My Courses</a>
+                    <a href="#">My Favorites</a>
+                    <a href="#">My Cart</a>
+                </div>
 
-                <div className="dashBtn" onClick={() => setVisible(true)}>
+                <div className="dashBtn">
                     <span className="material-symbols-rounded">shopping_cart</span>
                     <span className="material-symbols-rounded">favorite</span>
-                    <Avatar className="p-overlay-badge">
+                    <Avatar className="p-overlay-badge" onClick={() => setVisible(true)}>
                         <span className="material-symbols-rounded">person</span>
                         <Badge value="+10" />
                     </Avatar>
