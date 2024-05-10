@@ -5380,10 +5380,6 @@ body {
         font-size: 2rem;
     }
 
-    .p-sidebar .p-sidebar-content ul li {
-        margin-bottom: 1rem;
-    }
-
     .p-tooltip .p-tooltip-text {
         background: #304562;
         color: $text-color-black;
@@ -7506,8 +7502,13 @@ body {
     }
 
     .p-avatar {
-        background-color: $primary_color-500;
+        background-color: $primary_color-800;
         border-radius: 15px;
+    }
+
+    .p-avatar .material-symbols-rounded {
+        color: $bg-color;
+        font-weight: 300;
     }
 
     .p-avatar.p-avatar-lg {
@@ -7702,10 +7703,10 @@ body {
         background: $primary_color-500;
         color: #212529;
         font-size: 0.75rem;
-        font-weight: 700;
-        min-width: 1.5rem;
-        height: 1.5rem;
-        line-height: 1.5rem;
+        font-weight: 500;
+        min-width: 1rem;
+        height: 1rem;
+        line-height: 1rem;
     }
 
     .p-badge.p-badge-secondary {

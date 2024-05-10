@@ -6,6 +6,22 @@ import { useState } from 'react';
 function Header() {
     const [visibleSidebar, setVisibleSidebar] = useState(false);
 
+    function handleRefresh() {
+        fetch('https://elearning-back.onrender.com/ping')
+            .then(response => {
+                if (response.ok) {
+                    return response.text();
+                }
+                throw new Error('Network response was not ok.');
+            })
+            .then(data => {
+                console.log('Response from /ping:', data);
+            })
+            .catch(error => {
+                console.error('There has been a problem with your fetch operation:', error);
+            });
+    }
+
     return (
         <header className="header">
             <div className="container">
@@ -18,11 +34,11 @@ function Header() {
                     <ul>
                         <li><a href="/">Home</a></li>
                         <li><a href="/courses">Courses</a></li>
-                        <li><a href="/community">Comunity</a></li>
                     </ul>
                 </nav>
 
                 <div className="btn">
+                    <span className="material-symbols-rounded" onClick={handleRefresh}>refresh</span>
                     <span className="material-symbols-rounded">shopping_cart</span>
                     <a className="login" href="/login">Log In</a>
                 </div>
@@ -33,7 +49,6 @@ function Header() {
                             <ul>
                                 <li><a href="/">Home</a></li>
                                 <li><a href="/courses">Courses</a></li>
-                                <li><a href="/community">Community</a></li>
                             </ul>
                             <ul>
                                 <li><a href="#">Cart</a></li>

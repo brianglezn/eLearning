@@ -1,1 +1,116 @@
 @import '../../variables';
+
+.dashBoard {
+    display: grid;
+    grid-auto-columns: 1fr;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.15fr 1.85fr;
+    gap: 0px 0px;
+    grid-template-areas:
+        "dashHeader"
+        "dashContent";
+    min-height: 100vh;
+
+    .dashHeader {
+        grid-area: dashHeader;
+        display: flex;
+        align-items: center;
+        padding: 0 1.5rem;
+
+        .dashlogo {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            img {
+                height: 45px;
+            }
+        }
+
+        .dashMenu {
+            flex: 2;
+        }
+
+        .dashBtn {
+            flex: 1;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 10px;
+
+            .p-avatar {
+                cursor: pointer;
+            }
+
+            span {
+                cursor: pointer;
+
+                &:hover {
+                    color: $primary_color-500;
+                }
+            }
+        }
+
+
+    }
+
+    .dashContent {
+        grid-area: dashContent;
+        background-color: $primary-color-light;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+.sidebar {
+    .sideProfile {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+
+        .sideProfile-name {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+
+            h3,
+            p {
+                margin: 0;
+            }
+        }
+    }
+
+    .sideNotifications,
+    .sideCourses {
+
+        ul {
+            padding-left: 1rem;
+        }
+
+        a {
+            color: black;
+            font-size: 1rem;
+
+            &:hover {
+                color: $primary_color-500;
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {}
+
+
+@media (max-width: 480px) {
+    .dashMenu {
+        display: none;
+    }
+
+    .dashBtn {
+        >span {
+            display: none;
+        }
+    }
+}
