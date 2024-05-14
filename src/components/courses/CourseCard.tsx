@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { Rating } from 'primereact/rating';
 
-import { Course } from '../../helpers/types';
+import { Course } from '../../api/types';
 
 import './CourseCard.scss';
 

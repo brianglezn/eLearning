@@ -139,6 +139,16 @@
             color: $primary_text;
         }
     }
+
+    .sideMenuItems {
+        ul {
+            padding-left: 20px;
+
+            li {
+                padding: 5px 0;
+            }
+        }
+    }
 }
 
 @media (max-width:480px) {

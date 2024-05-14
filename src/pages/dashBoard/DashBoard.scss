@@ -28,19 +28,12 @@
             }
         }
 
-        .dashMenu {
-            flex: 2;
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-        }
-
         .dashBtn {
             flex: 1;
             display: flex;
             justify-content: flex-end;
             align-items: center;
-            gap: 10px;
+            gap: 20px;
 
             .p-avatar {
                 cursor: pointer;
@@ -54,8 +47,6 @@
                 }
             }
         }
-
-
     }
 
     .dashContent {
@@ -68,58 +59,84 @@
 }
 
 .sidebar {
-    .sideProfile {
+    .p-sidebar-content {
+        flex: 1;
         display: flex;
-        align-items: center;
-        gap: 15px;
+        flex-direction: column;
+        justify-content: space-between;
 
-        .sideProfile-name {
+        .sideProfile {
             display: flex;
-            flex-direction: column;
-            gap: 5px;
+            align-items: center;
+            gap: 15px;
+            margin: 20px 0 40px;
 
-            h3,
-            p {
+            .sideProfile-name {
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+
+                h3,
+                p {
+                    margin: 0;
+                }
+            }
+        }
+
+        .sideNotifications,
+        .sideCourses {
+            background-color: #ffffffe0;
+            margin: 20px 20px 0 0;
+            padding: 20px 0;
+            border-radius: 15px;
+
+            ul {
+                padding-left: 1rem;
                 margin: 0;
+
+                li {
+                    display: flex;
+                    align-items: center;
+                    gap: 15px;
+                    padding: 5px 0 5px 10px;
+
+                    a {
+                        color: black;
+                        font-size: 1rem;
+                    }
+
+                    &:hover {
+                        cursor: pointer;
+
+                        span,
+                        a {
+                            color: $primary_color-500;
+                        }
+                    }
+
+                    span.p-badge {
+                        color: black;
+                        padding: 0 10px;
+                    }
+                }
             }
         }
-    }
 
-    .sideNotifications,
-    .sideCourses {
-
-        ul {
-            padding-left: 1rem;
-        }
-
-        a {
-            color: black;
-            font-size: 1rem;
-
-            &:hover {
-                color: $primary_color-500;
-            }
+        .sideLogout {
+            display: flex;
+            justify-content: center;
+            margin-top: auto;
+            padding: 20px 0;
         }
     }
 }
 
-@media (max-width: 768px) {
-    .dashBoard {
-        .dashHeader {
-            .dashMenu {
-                display: none;
-            }
-        }
-    }
-}
-
+@media (max-width: 768px) {}
 
 @media (max-width: 480px) {
     .dashBoard {
         .dashHeader {
-            .dashMenu {
-                display: none;
-            }
+
 
             .dashBtn {
                 >span {

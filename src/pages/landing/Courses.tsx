@@ -5,8 +5,8 @@ import { Dropdown } from 'primereact/dropdown';
 import Header from "../../components/landing/Header";
 import CourseCard from "../../components/courses/CourseCard";
 import Footer from '../../components/landing/Footer';
-import { Course } from '../../helpers/types';
-import getAllCourses from '../../helpers/getAllCourses';
+import { Course } from '../../api/types';
+import getAllCourses from '../../api/getAllCourses';
 
 import './Courses.scss';
 

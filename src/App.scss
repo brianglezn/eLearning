@@ -26,6 +26,21 @@ body {
             color: $primary_color-400;
         }
     }
+
+    .custom-button {
+        background-color: $primary_color-500;
+        color: $text-color-white;
+        padding: .8rem 1.2rem;
+        border: none;
+        border-radius: 7px;
+        transition: 0.1s;
+        font-weight: bold;
+        cursor: pointer;
+
+        &:hover {
+            background-color: $primary_color-600;
+        }
+    }
 }
 
 // Prime React Styles

@@ -44,7 +44,7 @@ function Header() {
                 </div>
 
                 <div className="sideMenu">
-                    <Sidebar visible={visibleSidebar} onHide={() => setVisibleSidebar(false)}>
+                    <Sidebar visible={visibleSidebar} position="right" onHide={() => setVisibleSidebar(false)}>
                         <div className="sideMenuItems">
                             <ul>
                                 <li><a href="/">Home</a></li>
@@ -52,7 +52,10 @@ function Header() {
                             </ul>
                             <ul>
                                 <li><a href="#">Cart</a></li>
+                            </ul>
+                            <ul>
                                 <li><a href="/login">Log In</a></li>
+                                <li><a href="/register">Register</a></li>
                             </ul>
                         </div>
                     </Sidebar>

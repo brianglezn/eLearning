@@ -3,8 +3,8 @@ import { Rating } from 'primereact/rating';
 import { useEffect, useState } from 'react';
 
 import Header from '../../components/landing/Header';
-import getCourseById from '../../helpers/getCoursesById';
-import { Course } from '../../helpers/types';
+import getCourseById from '../../api/getCoursesById';
+import { Course } from '../../api/types';
 
 import './CourseX.scss';
 
