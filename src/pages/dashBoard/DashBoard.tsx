@@ -69,7 +69,7 @@ function DashBoard() {
 
                 <div className="sideNotifications">
                     <ul>
-                        <li><span className="material-symbols-rounded">notifications</span><a href="#" >Notifications</a><Badge value="+100" /></li>
+                        <li><span className="material-symbols-rounded">notifications</span><a href="#">Notifications</a><Badge value="+100" /></li>
                         <li><span className="material-symbols-rounded">message</span><a href="#">Messages</a><Badge value="8" /></li>
                         <li><span className="material-symbols-rounded">groups</span><a href="#">Community</a></li>
                     </ul>

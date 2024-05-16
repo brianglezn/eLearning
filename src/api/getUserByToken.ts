@@ -1,7 +1,7 @@
 export async function getUserByToken() {
     const token = localStorage.getItem('token');
 
-    const response = await fetch(`https://elearning-back.onrender.com/user`, {
+    const response = await fetch('https://elearning-back.onrender.com/user', {
         headers: {
             'Authorization': `Bearer ${token}`,
         },
