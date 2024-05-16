@@ -12,7 +12,7 @@ function DashBoard() {
     const [visible, setVisible] = useState(false);
     const [user, setUser] = useState({ username: '', email: '' });
     const navigate = useNavigate();
-    const userId = 3;
+    const userId = 2;
 
     useEffect(() => {
         const fetchUserData = async () => {
@@ -28,7 +28,7 @@ function DashBoard() {
     }, [userId]);
 
     const handleLogout = () => {
-        localStorage.removeItem('authToken');
+        localStorage.removeItem("token");
         navigate('/');
     };
 
