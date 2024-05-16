@@ -26,9 +26,7 @@ function Login() {
       if (response.ok) {
         const data = await response.json();
         if (data.token) {
-          console.log('Token received:', data.token);
           login(data.token);
-          console.log('Logging OK');
           navigate('/dashboard');
         } else {
           console.error('Token is missing in response:', data);

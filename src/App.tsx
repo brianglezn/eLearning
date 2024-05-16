@@ -21,7 +21,6 @@ interface PrivateRouteProps {
 
 const PrivateRoute: React.FC<PrivateRouteProps> = ({ children }) => {
   const { authToken } = useAuth();
-  console.log('Auth Token:', authToken);  // Verifica el token aquí
   return authToken ? <>{children}</> : <Navigate to="/login" />;
 };
 
