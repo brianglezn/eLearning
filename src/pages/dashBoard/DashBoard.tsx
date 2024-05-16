@@ -4,20 +4,19 @@ import { Avatar } from 'primereact/avatar';
 import { Badge } from 'primereact/badge';
 import { Sidebar } from 'primereact/sidebar';
 
-import { getUserById } from '../../api/getUserById';
+import { getUserByToken } from '../../api/getUserByToken';
 
 import './DashBoard.scss';
 
 function DashBoard() {
     const [visible, setVisible] = useState(false);
-    const [user, setUser] = useState({ username: '', email: '' });
+    const [user, setUser] = useState({ name: '', surname: '', email: '' });
     const navigate = useNavigate();
-    const userId = 2;
 
     useEffect(() => {
         const fetchUserData = async () => {
             try {
-                const userData = await getUserById(userId);
+                const userData = await getUserByToken();
                 setUser(userData);
             } catch (error) {
                 console.error('Failed to fetch user data:', error);
@@ -25,7 +24,7 @@ function DashBoard() {
         };
 
         fetchUserData();
-    }, [userId]);
+    }, []);
 
     const handleLogout = () => {
         localStorage.removeItem("token");
@@ -63,7 +62,7 @@ function DashBoard() {
                         </Avatar>
                     </div>
                     <div className="sideProfile-name">
-                        <h3>{user.username}</h3>
+                        <h3>{user.name} {user.surname}</h3>
                         <p>{user.email}</p>
                     </div>
                 </div>
