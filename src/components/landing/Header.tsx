@@ -1,4 +1,5 @@
 import { Sidebar } from 'primereact/sidebar';
+import { toast } from 'react-hot-toast';
 
 import './Header.scss';
 import { useState } from 'react';
@@ -7,19 +8,26 @@ function Header() {
     const [visibleSidebar, setVisibleSidebar] = useState(false);
 
     function handleRefresh() {
-        fetch('https://elearning-back.onrender.com/ping')
-            .then(response => {
-                if (response.ok) {
-                    return response.text();
-                }
-                throw new Error('Network response was not ok.');
-            })
-            .then(data => {
-                console.log('Response from /ping:', data);
-            })
-            .catch(error => {
-                console.error('There has been a problem with your fetch operation:', error);
-            });
+        toast.promise(
+            fetch('https://elearning-back.onrender.com/ping')
+                .then(response => {
+                    if (response.ok) {
+                        return response.text();
+                    }
+                    throw new Error('Network response was not ok.');
+                }),
+            {
+                loading: 'Refreshing...',
+                success: data => {
+                    setTimeout(() => {
+                        window.location.reload();
+                        console.log('Response from /ping:', data);
+                    }, 1000);
+                    return `Response from backend OK`;
+                },
+                error: 'There has been a problem with your /ping'
+            }
+        );
     }
 
     return (

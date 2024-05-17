@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Avatar } from 'primereact/avatar';
 import { Badge } from 'primereact/badge';
 import { Sidebar } from 'primereact/sidebar';
+import toast from 'react-hot-toast';
 
 import { getUserByToken } from '../../api/getUserByToken';
 
@@ -27,8 +28,16 @@ function DashBoard() {
     }, []);
 
     const handleLogout = () => {
-        localStorage.removeItem("token");
-        navigate('/');
+        try {
+            localStorage.removeItem("token");
+            toast.success("Session closed successfully");
+            setTimeout(() => {
+                navigate('/');
+            }, 1000);
+        } catch (error) {
+            console.error('Error during logout:', error);
+            toast.error('There was an error closing the session');
+        }
     };
 
     return (

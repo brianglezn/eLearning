@@ -20,7 +20,6 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     const [authToken, setAuthToken] = useState<string | null>(localStorage.getItem("token"));
 
     const login = (token: string) => {
-        console.log('Saving token:', token);
         localStorage.setItem("token", token);
         setAuthToken(token);
     };

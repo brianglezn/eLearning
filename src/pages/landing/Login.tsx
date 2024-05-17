@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-hot-toast';
 
 import { useAuth } from '../../context/useAuth';
 import Footer from '../../components/landing/Footer';
@@ -27,19 +28,20 @@ function Login() {
         const data = await response.json();
         if (data.token) {
           login(data.token);
+          toast.success('Login successful!');
           navigate('/dashboard');
         } else {
           console.error('Token is missing in response:', data);
-          alert('An error occurred during login. Please try again later.');
+          toast.error('An error occurred during login. Please try again later.');
         }
       } else if (response.status === 401) {
-        console.log('Invalid credentials. Please try again.');
+        toast.error('Invalid credentials. Please try again.');
       } else {
         throw new Error(`Login failed with status: ${response.status}`);
       }
     } catch (error) {
       console.error('Error during login:', error);
-      alert('An error occurred during login. Please try again later.');
+      toast.error('An error occurred during login. Please try again later.');
     }
   };
 

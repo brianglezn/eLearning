@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-hot-toast';
+
 import Footer from '../../components/landing/Footer';
 import './Login_Register.scss';
 
@@ -30,13 +32,20 @@ function Register() {
 
             if (response.ok) {
                 await response.json();
+                toast.success('Registration successful!');
                 navigate('/login');
             } else {
                 const errorResponse = await response.json();
                 throw new Error(errorResponse.message || 'Failed to register');
             }
         } catch (error) {
-            console.error('Registration error:', error);
+            if (error instanceof Error) {
+                toast.error(`Registration error: ${error.message}`);
+                console.error('Registration error:', error.message);
+            } else {
+                toast.error('An unexpected error occurred');
+                console.error('Unexpected registration error:', error);
+            }
         }
     };
 
