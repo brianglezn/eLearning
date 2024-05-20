@@ -4,7 +4,6 @@ import { toast } from 'react-hot-toast';
 
 import { useAuth } from '../../context/useAuth';
 import Footer from '../../components/landing/Footer';
-
 import './Login_Register.scss';
 
 function Login() {

@@ -1,4 +1,4 @@
-import { Course } from './types';
+import { Course } from '../helpers/types';
 
 const getAllCourses = async () => {
     try {

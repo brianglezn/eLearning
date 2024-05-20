@@ -5,9 +5,8 @@ import { Rating } from 'primereact/rating';
 
 import Footer from '../../components/landing/Footer';
 import Header from '../../components/landing/Header';
-import { Course } from '../../api/types';
+import { Course } from '../../helpers/types';
 import getAllCourses from '../../api/getAllCourses';
-
 import './Home.scss';
 
 function Home() {

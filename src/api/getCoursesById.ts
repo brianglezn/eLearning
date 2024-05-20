@@ -1,4 +1,4 @@
-import { Course } from './types';
+import { Course } from '../helpers/types';
 
 const getCourseById = async (id: number): Promise<Course | null> => {
     try {

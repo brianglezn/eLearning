@@ -4,8 +4,7 @@ import { useEffect, useState } from 'react';
 
 import Header from '../../components/landing/Header';
 import getCourseById from '../../api/getCoursesById';
-import { Course } from '../../api/types';
-
+import { Course } from '../../helpers/types';
 import './CourseX.scss';
 
 function CourseX() {
@@ -54,7 +53,7 @@ function CourseX() {
                 </div>
             </div>
             <div className="courseContent">
-                {/* Aquí puedes renderizar el contenido del curso */}
+                {/* Aquí renderizamos el contenido del curso */}
             </div>
         </div>
     );
