@@ -1,5 +1,5 @@
-import React, { Suspense, useState, useEffect } from 'react';
-import { useNavigate, useSearchParams } from 'react-router-dom';
+import { Suspense, useState, useEffect } from 'react';
+import { useNavigate, Outlet } from 'react-router-dom';
 import { Avatar } from 'primereact/avatar';
 import { Badge } from 'primereact/badge';
 import { Sidebar } from 'primereact/sidebar';
@@ -7,21 +7,11 @@ import toast from 'react-hot-toast';
 
 import { getUserByToken } from '../../api/getUserByToken';
 import { User } from '../../helpers/types';
-const Shop = React.lazy(() => import('../shop/Shop'));
-const MyCart = React.lazy(() => import('../shop/MyCart'));
-const MyFavorites = React.lazy(() => import('../shop/MyFavorites'));
-const Messages = React.lazy(() => import('./Messages'));
-const Community = React.lazy(() => import('./Community'));
-const Notifications = React.lazy(() => import('./Notifications'));
-const MyCourses = React.lazy(() => import('./MyCourses'));
 import './DashBoard.scss';
-
-type Section = 'shop' | 'mycart' | 'myfavorites' | 'messages' | 'community' | 'notifications' | 'mycourses' | null;
 
 function DashBoard() {
     const [visible, setVisible] = useState(false);
     const [user, setUser] = useState<User | null>(null);
-    const [searchParams, setSearchParams] = useSearchParams();
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -46,11 +36,15 @@ function DashBoard() {
         }
     }, [navigate]);
 
-    useEffect(() => {
-        if (!searchParams.get("section")) {
-            setSearchParams({ section: 'mycourses' });
+    const isTokenExpired = (token: string): boolean => {
+        try {
+            const { exp } = JSON.parse(atob(token.split('.')[1]));
+            return Date.now() >= exp * 1000;
+        } catch (error) {
+            console.error('Error checking token expiration:', error);
+            return true;
         }
-    }, [searchParams, setSearchParams]);
+    };
 
     const handleLogout = () => {
         try {
@@ -65,12 +59,10 @@ function DashBoard() {
         }
     };
 
-    const handleNavigation = (section: Section) => {
-        setSearchParams(section ? { section } : {});
+    const handleNavigation = (path: string) => {
+        navigate(path);
         setVisible(false);
     };
-
-    const section: Section = searchParams.get("section") as Section;
 
     return (
         <div className="dashBoard">
@@ -81,8 +73,12 @@ function DashBoard() {
                 </div>
 
                 <div className="dashBtn">
-                    <span className="material-symbols-rounded" onClick={() => handleNavigation('shop')}>storefront</span>
-                    <span className="material-symbols-rounded" onClick={() => handleNavigation('mycourses')}>school</span>
+                    <a onClick={() => handleNavigation('/dashboard/shop')}>
+                        <span className="material-symbols-rounded">storefront</span>
+                    </a>
+                    <a onClick={() => handleNavigation('/dashboard/mycourses')}>
+                        <span className="material-symbols-rounded">school</span>
+                    </a>
                     <Avatar className="p-overlay-badge" onClick={() => setVisible(true)}>
                         <span className="material-symbols-rounded">person</span>
                         <Badge value="+10" />
@@ -91,14 +87,8 @@ function DashBoard() {
             </div>
 
             <div className="dashContent">
-                {section === 'mycourses' && <MyCourses />}
                 <Suspense fallback={<div>Loading...</div>}>
-                    {section === 'shop' && <Shop />}
-                    {section === 'mycart' && <MyCart />}
-                    {section === 'myfavorites' && <MyFavorites />}
-                    {section === 'messages' && <Messages />}
-                    {section === 'community' && <Community />}
-                    {section === 'notifications' && <Notifications />}
+                    <Outlet />
                 </Suspense>
             </div>
 
@@ -121,42 +111,79 @@ function DashBoard() {
                     </div>
                 </div>
 
-                <div className="sideNotifications">
+                <div className="sideAccount">
                     <ul>
-                        <li onClick={() => handleNavigation('notifications')}>
-                            <span className="material-symbols-rounded">notifications</span>
-                            <a href="#">Notifications</a>
-                            <Badge value="+100" />
+                        <li>
+                            <a onClick={() => handleNavigation('/dashboard/account')}>
+                                <span className="material-symbols-rounded">person</span>
+                                Account
+                            </a>
                         </li>
-                        <li onClick={() => handleNavigation('messages')}>
-                            <span className="material-symbols-rounded">message</span>
-                            <a href="#">Messages</a>
-                            <Badge value="8" />
+                        <li>
+                            <a onClick={() => handleNavigation('/dashboard/notifications')}>
+                                <span className="material-symbols-rounded">notifications</span>
+                                Notifications
+                                <Badge value="+100" />
+                            </a>
                         </li>
-                        <li onClick={() => handleNavigation('community')}>
-                            <span className="material-symbols-rounded">groups</span>
-                            <a href="#">Community</a>
+                        <li>
+                            <a onClick={() => handleNavigation('/dashboard/messages')}>
+                                <span className="material-symbols-rounded">message</span>
+                                Messages
+                                <Badge value="8" />
+                            </a>
+                        </li>
+                        <li>
+                            <a onClick={() => handleNavigation('/dashboard/community')}>
+                                <span className="material-symbols-rounded">groups</span>
+                                Community
+                            </a>
                         </li>
                     </ul>
                 </div>
 
                 <div className="sideCourses">
                     <ul>
-                        <li onClick={() => handleNavigation('shop')}>
-                            <span className="material-symbols-rounded">storefront</span>
-                            <a href="#">Shop</a>
+                        <li>
+                            <a onClick={() => handleNavigation('/dashboard/shop')}>
+                                <span className="material-symbols-rounded">storefront</span>
+                                Shop
+                            </a>
                         </li>
-                        <li onClick={() => handleNavigation('myfavorites')}>
-                            <span className="material-symbols-rounded">favorite</span>
-                            <a href="#">My Favorites</a>
+                        <li>
+                            <a onClick={() => handleNavigation('/dashboard/myfavorites')}>
+                                <span className="material-symbols-rounded">favorite</span>
+                                My Favorites
+                            </a>
                         </li>
-                        <li onClick={() => handleNavigation('mycart')}>
-                            <span className="material-symbols-rounded">shopping_cart</span>
-                            <a href="#">My Cart</a>
+                        <li>
+                            <a onClick={() => handleNavigation('/dashboard/mycart')}>
+                                <span className="material-symbols-rounded">shopping_cart</span>
+                                My Cart
+                            </a>
                         </li>
-                        <li onClick={() => handleNavigation('mycourses')}>
-                            <span className="material-symbols-rounded">school</span>
-                            <a href="#">My Courses</a>
+                        <li>
+                            <a onClick={() => handleNavigation('/dashboard/mycourses')}>
+                                <span className="material-symbols-rounded">school</span>
+                                My Courses
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div className="sideHelp">
+                    <ul>
+                        <li>
+                            <a>
+                                <span className="material-symbols-rounded">help</span>
+                                Help
+                            </a>
+                        </li>
+                        <li >
+                            <a>
+                                <span className="material-symbols-rounded">info</span>
+                                About Us
+                            </a>
                         </li>
                     </ul>
                 </div>
@@ -164,20 +191,9 @@ function DashBoard() {
                 <div className="sideLogout">
                     <button className='custom-button' onClick={handleLogout}>Log Out</button>
                 </div>
-
             </Sidebar>
         </div>
     );
 }
-
-const isTokenExpired = (token: string): boolean => {
-    try {
-        const { exp } = JSON.parse(atob(token.split('.')[1]));
-        return Date.now() >= exp * 1000;
-    } catch (error) {
-        console.error('Error checking token expiration:', error);
-        return true;
-    }
-};
 
 export default DashBoard;

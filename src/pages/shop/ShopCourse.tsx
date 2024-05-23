@@ -2,13 +2,12 @@ import { useParams } from 'react-router-dom';
 import { Rating } from 'primereact/rating';
 import { useEffect, useState } from 'react';
 
-import Header from '../../components/landing/Header';
 import getCourseById from '../../api/getCoursesById';
 import { Course } from '../../helpers/types';
-import './CourseX.scss';
+import './ShopCourse.scss';
 
-function CourseX() {
-    const { id } = useParams<{ id?: string }>();
+function ShopCourse() {
+    const { id } = useParams<{ id: string }>();
     const [course, setCourse] = useState<Course | null>(null);
 
     useEffect(() => {
@@ -31,10 +30,8 @@ function CourseX() {
     }
 
     return (
-        <div className='courseX'>
-            <Header />
-
-            <div className="courseMain">
+        <div className='shopCourse'>
+            <div className="shopCourse-main">
                 <div className="text">
                     <div>
                         <h1>{course.title}</h1>
@@ -54,11 +51,11 @@ function CourseX() {
                     <a className="buy" href="#">Buy now</a>
                 </div>
             </div>
-            <div className="courseContent">
+            <div className="shopCourse-content">
                 {/* Aquí renderizamos el contenido del curso */}
             </div>
         </div>
     );
 }
 
-export default CourseX;
+export default ShopCourse;

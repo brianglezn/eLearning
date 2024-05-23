@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { Rating } from 'primereact/rating';
 
 import { Course } from '../../helpers/types';
@@ -6,16 +6,21 @@ import { Course } from '../../helpers/types';
 import './CourseCard.scss';
 
 function CourseCard({ course }: { course: Course }) {
-
     const navigate = useNavigate();
+    const location = useLocation();
 
     const handleCourseClick = () => {
-        navigate(`/courses/${course.id}`);
+        const currentPath = location.pathname;
+        if (currentPath.includes('/dashboard')) {
+            navigate(`/dashboard/shop/${course._id}`);
+        } else {
+            navigate(`/courses/${course._id}`);
+        }
     };
 
     return (
         <div className="courseCard" onClick={handleCourseClick}>
-            <img src={course.image} alt={course.title} style={{ width: '100%', display: 'block' }} />
+            <img src={course.image} alt={course.title} />
             <h3>{course.title}</h3>
             <p>{course.description}</p>
             <p className="courseCard-price">{course.price}</p>

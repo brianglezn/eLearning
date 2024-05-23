@@ -27,7 +27,7 @@ function Courses() {
         };
         fetchCourses();
     }, []);
-    
+
 
     useEffect(() => {
         const filtered = selectedCategoryFromURL ? courses.filter(course => course.category === selectedCategoryFromURL) : courses;
@@ -54,7 +54,7 @@ function Courses() {
                 />
                 <div className="coursesList">
                     {filteredCourses.map(course => (
-                        <CourseCard key={course.id} course={course} />
+                        <CourseCard key={course._id} course={course} />
                     ))}
                 </div>
             </div>

@@ -1,5 +1,5 @@
 export type Course = {
-    id: number;
+    _id: string;
     title: string;
     description: string;
     image: string;
@@ -20,7 +20,7 @@ export type Course = {
 };
 
 export type User = {
-    id: number;
+    _id: string;
     username: string;
     name: string;
     surname: string;

@@ -1,15 +1,15 @@
 import { Course } from '../helpers/types';
 
-const getCourseById = async (id: number): Promise<Course | null> => {
+const getCourseById = async (id: string): Promise<Course | null> => {
     try {
         const response = await fetch(`https://elearning-back.onrender.com/courses/${id}`);
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }
         const courseData = await response.json();
-        const formattedCourse = {
+        const formattedCourse: Course = {
             ...courseData,
-            id: courseData.id,
+            id: courseData._id,
             rating: parseFloat(courseData.rating).toString()
         };
 

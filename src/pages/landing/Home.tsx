@@ -50,7 +50,7 @@ function Home() {
 
   const courseTemplate = (course: Course) => {
     const handleCourseClick = () => {
-      navigate(`/courses/${course.id}`);
+      navigate(`/courses/${course._id}`);
     };
 
     return (

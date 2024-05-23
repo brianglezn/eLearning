@@ -1,18 +1,10 @@
 @import '../../variables';
 
 .dashBoard {
-    display: grid;
-    grid-auto-columns: 1fr;
-    grid-template-columns: 1fr;
-    grid-template-rows: 0.15fr 1.85fr;
-    gap: 0px 0px;
-    grid-template-areas:
-        "dashHeader"
-        "dashContent";
-    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 
     .dashHeader {
-        grid-area: dashHeader;
         display: flex;
         align-items: center;
         padding: 0 1.5rem;
@@ -36,26 +28,28 @@
             gap: 20px;
             margin-right: 1.5rem;
 
-            .p-avatar {
+            a {
                 cursor: pointer;
-            }
-
-            >span {
-                cursor: pointer;
+                color: $text-color-black;
 
                 &:hover {
                     color: $primary_color-500;
                 }
             }
+
+            .p-avatar {
+                cursor: pointer;
+            }
+
         }
     }
 
     .dashContent {
-        grid-area: dashContent;
         background-color: $primary-color-light;
         display: flex;
-        align-items: center;
         justify-content: center;
+        padding: 2rem 1rem;
+        min-height: 94vh;
     }
 }
 
@@ -84,8 +78,9 @@
             }
         }
 
-        .sideNotifications,
-        .sideCourses {
+        .sideAccount,
+        .sideCourses,
+        .sideHelp {
             background-color: #ffffffe0;
             margin: 20px 20px 0 0;
             padding: 20px 0;
@@ -96,28 +91,23 @@
                 margin: 0;
 
                 li {
-                    display: flex;
-                    align-items: center;
-                    gap: 15px;
-                    padding: 5px 0 5px 10px;
-
                     a {
+                        display: flex;
+                        align-items: center;
+                        gap: 15px;
+                        padding: 5px 0 5px 10px;
                         color: black;
                         font-size: 1rem;
-                    }
 
-                    &:hover {
-                        cursor: pointer;
-
-                        span,
-                        a {
+                        &:hover {
+                            cursor: pointer;
                             color: $primary_color-500;
                         }
-                    }
 
-                    span.p-badge {
-                        color: black;
-                        padding: 0 10px;
+                        span.p-badge {
+                            color: black;
+                            padding: 0 10px;
+                        }
                     }
                 }
             }
@@ -140,7 +130,7 @@
 
 
             .dashBtn {
-                >span {
+                a {
                     display: none;
                 }
             }

@@ -10,8 +10,16 @@ import Login from './pages/landing/Login';
 import Register from './pages/landing/Register';
 import ForgotPassword from './pages/landing/ForgotPassword';
 import ForgotPasswordToken from './pages/landing/ForgotPasswordToken';
-import DashBoard from './pages/dashBoard/DashBoard';
 import CourseX from './pages/landing/CourseX';
+import DashBoard from './pages/dashBoard/DashBoard';
+import Messages from './pages/dashBoard/Messages';
+import Notifications from './pages/dashBoard/Notifications';
+import MyCourses from './pages/dashBoard/MyCourses';
+import Account from './pages/dashBoard/Account';
+import Shop from './pages/shop/Shop';
+import ShopCourse from './pages/shop/ShopCourse';
+import MyCart from './pages/shop/MyCart';
+import MyFavorites from './pages/shop/MyFavorites';
 
 import './App.scss';
 
@@ -37,11 +45,17 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/forgotpassword" element={<ForgotPassword />} />
           <Route path="/forgotpasswordtoken" element={<ForgotPasswordToken />} />
-          <Route path="/dashboard" element={
-            <PrivateRoute>
-              <DashBoard />
-            </PrivateRoute>
-          } />
+          <Route path="/dashboard" element={<PrivateRoute><DashBoard /></PrivateRoute>}>
+            <Route path="shop" element={<Shop />} />
+            <Route path="shop/:id" element={<ShopCourse />} />
+            <Route path="account" element={<Account />} />
+            <Route path="mycart" element={<MyCart />} />
+            <Route path="myfavorites" element={<MyFavorites />} />
+            <Route path="messages" element={<Messages />} />
+            <Route path="community" element={<Community />} />
+            <Route path="notifications" element={<Notifications />} />
+            <Route path="mycourses" element={<MyCourses />} />
+          </Route>
         </Routes>
       </Router>
     </AuthProvider>
