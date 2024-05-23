@@ -9,7 +9,7 @@ const getAllCourses = async () => {
         const coursesData = await response.json();
         const formattedCourses = coursesData.map((course: Course) => ({
             ...course,
-            id: course.id,
+            id: course._id,
             rating: parseFloat(course.rating).toString()
         }));
 
