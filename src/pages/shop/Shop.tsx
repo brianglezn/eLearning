@@ -33,7 +33,7 @@ function Shop() {
 
     const handleCategoryChange = (e: { value: string | null }) => {
         const category = e.value;
-        navigate(category ? `/dashboard?section=shop&category=${encodeURIComponent(category)}` : '/dashboard?section=shop');
+        navigate(category ? `/dashboard/shop?category=${encodeURIComponent(category)}` : '/dashboard/shop');
     };
 
     const categories = Array.from(new Set(courses.map(course => course.category)));

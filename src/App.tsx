@@ -14,8 +14,8 @@ import CourseX from './pages/landing/CourseX';
 import DashBoard from './pages/dashBoard/DashBoard';
 import Messages from './pages/dashBoard/Messages';
 import Notifications from './pages/dashBoard/Notifications';
-import MyCourses from './pages/dashBoard/MyCourses';
 import Account from './pages/dashBoard/Account';
+import MyCourses from './pages/courses/MyCourses';
 import Shop from './pages/shop/Shop';
 import ShopCourse from './pages/shop/ShopCourse';
 import MyCart from './pages/shop/MyCart';
@@ -46,6 +46,7 @@ function App() {
           <Route path="/forgotpassword" element={<ForgotPassword />} />
           <Route path="/forgotpasswordtoken" element={<ForgotPasswordToken />} />
           <Route path="/dashboard" element={<PrivateRoute><DashBoard /></PrivateRoute>}>
+            <Route index element={<MyCourses />} />
             <Route path="shop" element={<Shop />} />
             <Route path="shop/:id" element={<ShopCourse />} />
             <Route path="account" element={<Account />} />
