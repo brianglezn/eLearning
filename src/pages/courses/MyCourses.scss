@@ -1,0 +1,13 @@
+@import '../../variables';
+
+.myCourses {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    .coursesUser {
+        display: flex;
+        gap: 2rem;
+        margin: 1rem;
+    }
+}

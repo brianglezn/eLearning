@@ -16,6 +16,7 @@ import Messages from './pages/dashBoard/Messages';
 import Notifications from './pages/dashBoard/Notifications';
 import Account from './pages/dashBoard/Account';
 import MyCourses from './pages/courses/MyCourses';
+import CourseLesson from './pages/courses/CourseLesson';
 import Shop from './pages/shop/Shop';
 import ShopCourse from './pages/shop/ShopCourse';
 import MyCart from './pages/shop/MyCart';
@@ -56,6 +57,7 @@ function App() {
             <Route path="community" element={<Community />} />
             <Route path="notifications" element={<Notifications />} />
             <Route path="mycourses" element={<MyCourses />} />
+            <Route path="mycourses/:id" element={<CourseLesson />} />
           </Route>
         </Routes>
       </Router>
