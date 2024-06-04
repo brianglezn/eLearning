@@ -3,7 +3,7 @@ import './CourseLesson.scss';
 function CourseLesson() {
 
     return (
-        <div>My course course</div>
+        <div>My course XXXX</div>
     );
 }
 

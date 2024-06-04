@@ -5,7 +5,6 @@ import { useAuth } from './context/useAuth';
 
 import Home from './pages/landing/Home';
 import Courses from './pages/landing/Courses';
-import Community from './pages/landing/Community';
 import Login from './pages/landing/Login';
 import Register from './pages/landing/Register';
 import ForgotPassword from './pages/landing/ForgotPassword';
@@ -15,6 +14,7 @@ import DashBoard from './pages/dashBoard/DashBoard';
 import Messages from './pages/dashBoard/Messages';
 import Notifications from './pages/dashBoard/Notifications';
 import Account from './pages/dashBoard/Account';
+import Community from './pages/dashBoard/Community';
 import MyCourses from './pages/courses/MyCourses';
 import CourseLesson from './pages/courses/CourseLesson';
 import Shop from './pages/shop/Shop';

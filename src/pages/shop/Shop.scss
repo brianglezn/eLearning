@@ -4,20 +4,38 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    padding: 0 3rem;
 
-    .p-dropdown {
+    .dropdown {
+        margin: 0 auto;
         width: 100%;
         margin-bottom: 2rem;
     }
 
+
     .coursesList {
         display: flex;
-        justify-content: space-evenly;
         flex-wrap: wrap;
         gap: 20px;
-        padding: 20px;
         width: 100%;
         max-width: 1300px;
+        padding-left: 20px;
+    }
+
+
+    @media (max-width: 768px) {
+        padding: 0 1rem;
+
+        .coursesList {
+            padding-left: 0;
+        }
+    }
+
+    @media (max-width: 480px) {
+        padding: 0;
+
+        .coursesList {
+            justify-content: center;
+        }
     }
 }
