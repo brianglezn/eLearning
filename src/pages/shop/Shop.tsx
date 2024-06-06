@@ -41,6 +41,7 @@ function Shop() {
 
     return (
         <section className="shop">
+            <h2>Shop</h2>
             <Dropdown
                 value={selectedCategoryFromURL}
                 options={categoryOptions}

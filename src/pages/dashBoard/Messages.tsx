@@ -2,9 +2,9 @@ import './Messages.scss';
 
 function Messages() {
     return (
-        <div>
+        <section className='messages'>
             <h1>Messages</h1>
-        </div>
+        </section>
     );
 }
 

@@ -2,9 +2,9 @@ import './MyFavorites.scss';
 
 function MyFavorites() {
     return (
-        <div>
+        <section className='favorites'>
             <h1>Favorites</h1>
-        </div>
+        </section>
     );
 }
 

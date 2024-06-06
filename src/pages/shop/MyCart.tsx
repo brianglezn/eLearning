@@ -2,9 +2,9 @@ import './MyCart.scss';
 
 function MyCart() {
     return (
-        <div>
+        <section className='cart'>
             <h1>Cart</h1>
-        </div>
+        </section>
     );
 }
 

@@ -2,9 +2,9 @@ import './Notifications.scss';
 
 function Notifications() {
     return (
-        <div>
+        <section className='notifications'>
             <h1>Notifications</h1>
-        </div>
+        </section>
     );
 }
 

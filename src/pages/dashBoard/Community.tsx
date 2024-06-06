@@ -2,9 +2,9 @@ import './Community.scss';
 
 function Community() {
     return (
-        <div>
+        <section className='community'>
             <h1>Community</h1>
-        </div>
+        </section>
     );
 }
 

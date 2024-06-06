@@ -916,10 +916,10 @@ body {
         cursor: pointer;
         position: relative;
         user-select: none;
-        width: auto;
-        max-width: 1200px;
+        width: 100%;
         padding: 10px;
         box-shadow: $shadow-color-primary 0px 1px 4px;
+        margin-bottom: 2rem;
     }
 
     .p-dropdown-clear-icon {

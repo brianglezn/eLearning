@@ -2,9 +2,9 @@ import './Account.scss';
 
 function Account() {
     return (
-        <div>
+        <section className='account'>
             <h1>Account</h1>
-        </div>
+        </section>
     );
 }
 
