@@ -6,13 +6,11 @@
     flex-direction: column;
     padding: 0 3rem;
 
-
     .coursesList {
         display: flex;
         flex-wrap: wrap;
         gap: 20px;
         width: 100%;
-        max-width: 1300px;
         margin: auto;
         padding-left: 20px;
     }

@@ -27,7 +27,7 @@ function MyCourses() {
     }, [authToken]);
 
     return (
-        <div className='myCourses'>
+        <section className='myCourses'>
             <h2>My Courses</h2>
             <div className="coursesUser">
                 {courses.length > 0 ? (
@@ -35,10 +35,13 @@ function MyCourses() {
                         <CourseCardPurchased key={course._id} course={course} />
                     ))
                 ) : (
-                    <p>No courses purchased yet.</p>
+                    <div>
+                        <p>No courses purchased yet.</p>
+                        <a href='/dashboard/shop'>Explore the shop</a>
+                    </div>
                 )}
             </div>
-        </div>
+        </section>
     );
 }
 
