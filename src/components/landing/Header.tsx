@@ -3,6 +3,7 @@ import { toast } from 'react-hot-toast';
 
 import './Header.scss';
 import { useState } from 'react';
+import BarsIcon from '../icons/BarsIcon';
 
 function Header() {
     const [visibleSidebar, setVisibleSidebar] = useState(false);
@@ -69,7 +70,7 @@ function Header() {
                     </Sidebar>
 
                     <button className="sidebar-toggle-button" onClick={() => setVisibleSidebar(true)}>
-                        <i className="fa-solid fa-bars"></i>
+                        <BarsIcon />
                     </button>
                 </div>
 

@@ -10,6 +10,7 @@ function Footer() {
                     <img src="https://res.cloudinary.com/dz0mwxb0v/image/upload/v1714402089/eLearning/logo_eLearning.png" alt="Logo" />
                     <h2>eLearning</h2>
                 </div>
+
                 <div className="menus">
                     <div className="footer-section about">
                         <h3>ABOUT</h3>
@@ -36,6 +37,7 @@ function Footer() {
                     <p><a href="#">hola@brian-novoa.com</a></p>
                 </div>
             </div>
+
             <div className="footer-bottom">
                 <p>© {currentYear} All Rights Reserved. <a href="https://brian-novoa.com/">Brian Novoa</a>®</p>
             </div>

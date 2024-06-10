@@ -3,17 +3,15 @@
 .home {
     display: flex;
     flex-direction: column;
-    align-items: center;
 
-    .main {
+    .homeMain {
         display: flex;
         justify-content: center;
         align-items: center;
         padding: 20px;
-        border-radius: 30px;
-        min-height: 50vh;
+        min-height: 60vh;
         width: 100%;
-        max-width: 1200px;
+        margin: 0 auto;
         background-image: repeating-linear-gradient(96deg,
                 #f5eef900 0px,
                 #f5eef900 1px,
@@ -58,7 +56,7 @@
             text-align: center;
             padding: 40px;
             border-radius: 8px;
-            color: #fff;
+            color: $text-color-white;
 
             h1 {
                 font-size: 50px;
@@ -66,11 +64,78 @@
         }
     }
 
-    .courses {
+    .homeHowItWorks {
+        background-color: $text-color-white;
+        padding: 3rem 0;
+        text-align: center;
+
+        .homeHowItWorks-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+
+            .steps {
+                display: flex;
+                justify-content: space-around;
+                flex-wrap: wrap;
+
+                .step {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    background-color: $primary_color-300;
+                    border-radius: 1rem;
+                    padding: 3.2rem 2rem 2rem;
+                    width: 20rem;
+                    margin: 1rem;
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.182);
+                    text-align: center;
+                    position: relative;
+
+                    .step-number {
+                        position: absolute;
+                        top: -1rem;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        background-color: $primary_color-600;
+                        color: $text-color-white;
+                        border-radius: 50%;
+                        width: 3rem;
+                        height: 3rem;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        font-size: 1.5rem;
+                        font-weight: bold;
+                        box-shadow: 0 0 0 3px $text-color-white;
+                    }
+
+                    svg {
+                        width: 5rem;
+                        fill: $primary_color-800;
+                    }
+
+                    p {
+                        line-height: 1.6;
+
+                        span {
+                            margin-right: .5rem;
+                            font-weight: bold;
+                            color: $text-color-white;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .homeCourses {
         width: 100%;
         max-width: 1200px;
-        padding: 20px;
-        margin-top: 2rem;
+        padding: 3rem 0;
+        margin: 0 auto;
+        text-align: center;
 
         h2 {
             margin-bottom: 2rem;
@@ -99,17 +164,17 @@
         .carouselCard {
             display: flex;
             flex-direction: column;
-            background-color: #fff;
-            border-radius: 8px;
+            background-color: $text-color-white;
+            border-radius: 1rem;
             min-height: 25rem;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             cursor: pointer;
-            margin: 0 5px;
+            margin: 0 .2rem;
+            text-align: left;
 
             img {
-                border-radius: 8px 8px 0 0;
-                margin-bottom: 8px;
+                border-radius: 1rem 1rem 0 0;
             }
 
             .carouselDetails {
@@ -130,44 +195,211 @@
                 .carouselDetails-ratingAndReviews {
                     display: flex;
                     align-items: center;
-                    gap: 8px;
+                    gap: .5rem;
 
                     .p-rating {
-                        margin: 10px 0;
+                        margin: .8rem 0;
                     }
                 }
             }
         }
     }
 
-    .categories {
-        display: flex;
-        justify-content: flex-start;
-        flex-wrap: wrap;
-        gap: 20px;
+    .homeAbout {
+        background-color: $text-color-white;
 
-        .categoryCard {
+        .homeAbout-container {
             display: flex;
             justify-content: center;
             align-items: center;
-            width: calc(25% - 20px);
-            height: 4.5rem;
-            background-color: #fff;
-            border-radius: 8px;
-            padding: 20px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            cursor: pointer;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            gap: 2rem;
+            padding: 3rem 0;
+            margin: 0 auto;
+            max-width: 1200px;
 
-            &:hover {
-                transform: translateY(-5px);
-                box-shadow: 0 6px 12px $primary_color-700;
+            .homeAbout-img {
+                flex: 1;
+
+                img {
+                    width: 100%;
+                    height: auto;
+                    border-radius: 1rem;
+                }
             }
 
-            a {
-                font-size: 1.2rem;
-                color: #333;
-                text-align: center;
+            .homeAbout-text {
+                flex: 1.5;
+
+                h2 {
+                    margin-bottom: 2rem;
+                }
+
+                p {
+                    font-size: 16px;
+                    line-height: 1.6;
+                    margin-bottom: .8rem;
+                }
+            }
+        }
+    }
+
+    .homeAchievements {
+        background-color: $primary_color-800;
+        color: $text-color-white;
+        padding: 3rem 0;
+        text-align: center;
+        position: relative;
+
+        .homeAchievements-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+
+            h2 {
+                margin-bottom: .8rem;
+            }
+
+            .subtext {
+                margin-bottom: 2rem;
+            }
+
+            .homeAchievements-cards {
+                display: flex;
+                justify-content: space-around;
+                flex-wrap: wrap;
+                gap: 1rem;
+
+                .card {
+                    background-color: $text-color-white;
+                    color: $primary_color-700;
+                    border-radius: 1rem;
+                    padding: 1rem;
+                    width: 13rem;
+
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                    text-align: center;
+
+                    h3 {
+                        font-size: 2rem;
+                        margin: .8rem 0;
+                    }
+
+                    p {
+                        font-size: 1.25rem;
+                        margin: 0;
+                    }
+
+                    .star {
+                        color: #ffa500;
+                    }
+                }
+            }
+        }
+
+        &::before,
+        &::after {
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        &::before {
+            width: 8rem;
+            height: 8rem;
+            top: 2rem;
+            left: 2rem;
+        }
+
+        &::after {
+            width: 10rem;
+            height: 10rem;
+            bottom: 2rem;
+            right: 2rem;
+        }
+    }
+
+    .homeCategories {
+        width: 100%;
+        max-width: 1200px;
+        padding: 3rem 0;
+        margin: 0 auto;
+        text-align: center;
+
+        >div {
+            display: flex;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+            gap: 1rem;
+
+            .categoryCard {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: calc(25% - 20px);
+                height: 4.5rem;
+                background-color: $text-color-white;
+                border-radius: 1rem;
+                padding: 2rem;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                cursor: pointer;
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+                &:hover {
+                    transform: translateY(-5px);
+                    box-shadow: 0 6px 12px $primary_color-700;
+                }
+
+                a {
+                    font-size: 1.2rem;
+                    color: #333;
+                    text-align: center;
+                }
+            }
+        }
+    }
+
+    .homeTestimonials {
+        background-color: $primary_color-300;
+        padding: 3rem 0;
+        text-align: center;
+
+        .homeTestimonials-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+
+            h2 {
+                font-size: 2.5rem;
+                margin-bottom: 20px;
+            }
+
+            .homeTestimonials-cards {
+                display: flex;
+                justify-content: space-around;
+                flex-wrap: wrap;
+
+                .testimonial {
+                    background-color: #fff;
+                    color: #333;
+                    border-radius: 10px;
+                    padding: 20px;
+                    width: 300px;
+                    margin: 10px;
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                    text-align: left;
+
+                    p {
+                        font-size: 1rem;
+                        line-height: 1.6;
+                    }
+
+                    .author {
+                        font-weight: bold;
+                        margin-top: 10px;
+                        text-align: right;
+                    }
+                }
             }
         }
     }
@@ -175,40 +407,59 @@
 
 @media (max-width: 768px) {
     .home {
-        .main {
+        .homeMain {
             min-height: 35vh;
-            width: 95%;
         }
 
-        .categories {
-            justify-content: center;
+        .homeAbout {
+            padding: 0 1rem;
+        }
 
-            .categoryCard {
-                width: calc(33.33% - 20px);
+        .homeCategories {
+            padding: 2rem;
 
-                a {
-                    font-size: 1.1rem;
+            >div {
+                .categoryCard {
+                    width: calc(33.33% - 20px);
+
+                    a {
+                        font-size: 1.1rem;
+                    }
                 }
             }
         }
     }
-
 }
 
 @media (max-width: 480px) {
     .home {
-        .main {
+        .homeMain {
             .banner h1 {
                 font-size: 35px;
             }
         }
 
-        .categories {
-            .categoryCard {
-                width: calc(50% - 20px);
+        .homeAbout {
+            .homeAbout-container {
+                flex-direction: column;
+                width: 80%;
+                gap: 1rem;
 
-                a {
-                    font-size: 1rem;
+                .homeAbout-img {
+                    display: flex;
+                    justify-content: center;
+                }
+            }
+        }
+
+        .homeCategories {
+            >div {
+                .categoryCard {
+                    width: calc(50% - 20px);
+
+                    a {
+                        font-size: 1rem;
+                    }
                 }
             }
         }
