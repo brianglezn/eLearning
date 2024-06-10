@@ -14,7 +14,7 @@ function CourseCard({ course }: { course: Course }) {
         if (currentPath.includes('/dashboard')) {
             navigate(`/dashboard/shop/${course._id}`);
         } else {
-            navigate(`/courses/${course._id}`);
+            navigate(`/register`);
         }
     };
 

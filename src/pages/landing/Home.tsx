@@ -119,9 +119,9 @@ function Home() {
             </div>
             <div className="homeAbout-text">
               <h2>About</h2>
-              <p>eLearning fosters a culture of continuous growth and lifelong learning. It's not merely focused on immediate achievements but on building long-term habits that contribute to both personal and professional growth.</p>
-              <p>Super-learning integrates various sensory experiences into the educational process, combining visual, auditory, and kinesthetic methods to create a richer, more engaging learning environment.</p>
-              <p>A key aspect of super-learning is the use of visualization techniques. Students are encouraged to form mental images or diagrams, which aids in reinforcing knowledge and making information easier to remember.</p>
+              <p>eLearning Platform fosters a culture of continuous growth and lifelong learning. It's not merely focused on immediate achievements but on building long-term habits that contribute to both personal and professional growth.</p>
+              <p>eLearning Platform integrates various sensory experiences into the educational process, combining visual, auditory, and kinesthetic methods to create a richer, more engaging learning environment.</p>
+              <p>A key aspect of eLearning Platform is the use of visualization techniques. Students are encouraged to form mental images or diagrams, which aids in reinforcing knowledge and making information easier to remember.</p>
             </div>
           </div>
         </section>
@@ -184,11 +184,15 @@ function Home() {
                 <p>"eLearning has been a game-changer for me. The flexibility and quality of the courses have allowed me to balance learning with my busy schedule."</p>
                 <p className="author">- Emily Johnson</p>
               </div>
-
               <div className="testimonial">
                 <p>"The support from the community and the instructors is amazing. I feel more confident in my skills and ready to take on new challenges."</p>
                 <p className="author">- Michael Brown</p>
               </div>
+              <div className="testimonial">
+                <p>"The interactive and hands-on approach of the courses has significantly enhanced my learning experience. Highly recommend this platform!"</p>
+                <p className="author">- Sarah Lee</p>
+              </div>
+
             </div>
           </div>
         </section>

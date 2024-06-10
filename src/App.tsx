@@ -9,7 +9,6 @@ import Login from './pages/landing/Login';
 import Register from './pages/landing/Register';
 import ForgotPassword from './pages/landing/ForgotPassword';
 import ForgotPasswordToken from './pages/landing/ForgotPasswordToken';
-import CourseX from './pages/landing/CourseX';
 import DashBoard from './pages/dashBoard/DashBoard';
 import Messages from './pages/dashBoard/Messages';
 import Notifications from './pages/dashBoard/Notifications';
@@ -40,7 +39,6 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/courses" element={<Courses />} />
-          <Route path="/courses/:id" element={<CourseX />} />
           <Route path="/community" element={<Community />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
