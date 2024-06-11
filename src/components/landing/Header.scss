@@ -68,17 +68,18 @@
         align-items: center;
         gap: 20px;
 
-        span {
-            padding: 1px 0;
+        a svg {
             cursor: pointer;
             transition: color 0.2s;
+            width: 1.3rem;
+            height: 1.3rem;
 
             &:hover {
-                color: $primary_color-700;
+                fill: $primary_color-700;
             }
         }
 
-        a.login {
+        a.auth {
             padding: 12px 30px;
             background-color: $primary_color-600;
             color: white;

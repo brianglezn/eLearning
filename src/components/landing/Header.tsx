@@ -4,6 +4,7 @@ import { toast } from 'react-hot-toast';
 import './Header.scss';
 import { useState } from 'react';
 import BarsIcon from '../icons/BarsIcon';
+import RefreshIcon from '../icons/RefreshIcon';
 
 function Header() {
     const [visibleSidebar, setVisibleSidebar] = useState(false);
@@ -47,9 +48,9 @@ function Header() {
                 </nav>
 
                 <div className="btn">
-                    <span className="material-symbols-rounded" onClick={handleRefresh}>refresh</span>
-                    <span className="material-symbols-rounded">shopping_cart</span>
-                    <a className="login" href="/login">Log In</a>
+                    <a onClick={handleRefresh}>
+                        <RefreshIcon /></a>
+                    <a className="auth" href="/login">Log In</a>
                 </div>
 
                 <div className="sideMenu">
