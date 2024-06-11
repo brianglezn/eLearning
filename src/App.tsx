@@ -13,7 +13,6 @@ import DashBoard from './pages/dashBoard/DashBoard';
 import Messages from './pages/dashBoard/Messages';
 import Notifications from './pages/dashBoard/Notifications';
 import Account from './pages/dashBoard/Account';
-import Community from './pages/dashBoard/Community';
 import MyCourses from './pages/courses/MyCourses';
 import CourseLesson from './pages/courses/CourseLesson';
 import Shop from './pages/shop/Shop';
@@ -51,7 +50,6 @@ function App() {
             <Route path="mycart" element={<MyCart />} />
             <Route path="myfavorites" element={<MyFavorites />} />
             <Route path="messages" element={<Messages />} />
-            <Route path="community" element={<Community />} />
             <Route path="notifications" element={<Notifications />} />
             <Route path="mycourses" element={<MyCourses />} />
             <Route path="mycourses/:id" element={<CourseLesson />} />

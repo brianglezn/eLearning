@@ -5,13 +5,26 @@ import { Badge } from 'primereact/badge';
 import { Sidebar } from 'primereact/sidebar';
 import toast from 'react-hot-toast';
 
+import './DashBoard.scss';
 import { getUserByToken } from '../../api/getUserByToken';
 import { User } from '../../helpers/types';
-import './DashBoard.scss';
+import eLearningLogo from '../../assets/eLearningLogo-black.png';
+import StoreIcon from '../../components/icons/StoreIcon';
+import UserIcon from '../../components/icons/UserIcon';
+import FavouriteIcon from '../../components/icons/FavouriteIcon';
+import GraduationCapIcon from '../../components/icons/GraduationCapIcon';
+import ShoppingCartIcon from '../../components/icons/ShoppingCartIcon';
+import AnglesLeftIcon from '../../components/icons/AnglesLeftIcon';
+import AnglesRightIcon from '../../components/icons/AnglesRightIcon';
+import BellIcon from '../../components/icons/BellIcon';
+import MessagesIcon from '../../components/icons/MessagesIcon';
+import HelpIcon from '../../components/icons/HelpIcon';
+import InfoIcon from '../../components/icons/InfoIcon';
 
 function DashBoard() {
     const [visible, setVisible] = useState(false);
     const [user, setUser] = useState<User | null>(null);
+    const [navCollapsed, setNavCollapsed] = useState(false);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -31,7 +44,6 @@ function DashBoard() {
                     navigate('/login');
                 }
             };
-
             fetchUserData();
         }
     }, [navigate]);
@@ -64,32 +76,70 @@ function DashBoard() {
         setVisible(false);
     };
 
-    return (
-        <div className="dashBoard">
-            <div className="dashHeader">
-                <div className="dashlogo">
-                    <img src="https://res.cloudinary.com/dz0mwxb0v/image/upload/v1714402089/eLearning/logo_eLearning.png" alt="Logo" />
-                    <h2>eLearning</h2>
-                </div>
+    const toggleNav = () => {
+        setNavCollapsed(!navCollapsed);
+    };
 
-                <div className="dashBtn">
-                    <a onClick={() => handleNavigation('/dashboard/shop')}>
-                        <span className="material-symbols-rounded">storefront</span>
-                    </a>
-                    <a onClick={() => handleNavigation('/dashboard/mycourses')}>
-                        <span className="material-symbols-rounded">school</span>
-                    </a>
-                    <Avatar className="p-overlay-badge" onClick={() => setVisible(true)}>
-                        <span className="material-symbols-rounded">person</span>
-                        <Badge value="+10" />
-                    </Avatar>
+    return (
+        <div className={`dashBoard ${navCollapsed ? 'collapsed' : ''}`}>
+            <div className="dashHeader">
+                <div className="dashHeader-container">
+                    <div className="dashHeader-logo">
+                        <img src={eLearningLogo} alt="Logo" />
+                        <h2>eLearning</h2>
+                    </div>
+
+                    <div className="dashBtn">
+                        <Avatar className="p-overlay-badge" onClick={() => setVisible(true)}>
+                            <UserIcon />
+                            <Badge value="+10" />
+                        </Avatar>
+                    </div>
+                </div>
+            </div>
+
+            <div className="dashNav">
+                <div className='dashNav-container'>
+                    <div className="dashNav-lists">
+                        <ul>
+                            <li>
+                                <a onClick={() => handleNavigation('/dashboard/shop')} data-tooltip="Shop">
+                                    <StoreIcon />
+                                    {!navCollapsed && 'Shop'}
+                                </a>
+                            </li>
+                            <li>
+                                <a onClick={() => handleNavigation('/dashboard/myfavorites')} data-tooltip="My Favorites">
+                                    <FavouriteIcon />
+                                    {!navCollapsed && 'My Favorites'}
+                                </a>
+                            </li>
+                            <li>
+                                <a onClick={() => handleNavigation('/dashboard/mycart')} data-tooltip="My Cart">
+                                    <ShoppingCartIcon />
+                                    {!navCollapsed && 'My Cart'}
+                                </a>
+                            </li>
+                            <li>
+                                <a onClick={() => handleNavigation('/dashboard/mycourses')} data-tooltip="My Courses">
+                                    <GraduationCapIcon />
+                                    {!navCollapsed && 'My Courses'}
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div onClick={toggleNav} className='nav-btn'>
+                        {navCollapsed ? <AnglesRightIcon /> : <AnglesLeftIcon />}
+                    </div>
                 </div>
             </div>
 
             <div className="dashContent">
-                <Suspense fallback={<div>Loading...</div>}>
-                    <Outlet />
-                </Suspense>
+                <div className="dashContent-container">
+                    <Suspense fallback={<div>Loading...</div>}>
+                        <Outlet />
+                    </Suspense>
+                </div>
             </div>
 
             <Sidebar
@@ -102,7 +152,7 @@ function DashBoard() {
                 <div className="sideProfile">
                     <div className="sideProfile-icon">
                         <Avatar className="p-overlay-badge" size='large'>
-                            <span className="material-symbols-rounded">person</span>
+                            <UserIcon />
                         </Avatar>
                     </div>
                     <div className="sideProfile-name">
@@ -115,57 +165,22 @@ function DashBoard() {
                     <ul>
                         <li>
                             <a onClick={() => handleNavigation('/dashboard/account')}>
-                                <span className="material-symbols-rounded">person</span>
+                                <UserIcon />
                                 Account
                             </a>
                         </li>
                         <li>
                             <a onClick={() => handleNavigation('/dashboard/notifications')}>
-                                <span className="material-symbols-rounded">notifications</span>
+                                <BellIcon />
                                 Notifications
                                 <Badge value="+100" />
                             </a>
                         </li>
                         <li>
                             <a onClick={() => handleNavigation('/dashboard/messages')}>
-                                <span className="material-symbols-rounded">message</span>
+                                <MessagesIcon />
                                 Messages
                                 <Badge value="8" />
-                            </a>
-                        </li>
-                        <li>
-                            <a onClick={() => handleNavigation('/dashboard/community')}>
-                                <span className="material-symbols-rounded">groups</span>
-                                Community
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-
-                <div className="sideCourses">
-                    <ul>
-                        <li>
-                            <a onClick={() => handleNavigation('/dashboard/shop')}>
-                                <span className="material-symbols-rounded">storefront</span>
-                                Shop
-                            </a>
-                        </li>
-                        <li>
-                            <a onClick={() => handleNavigation('/dashboard/myfavorites')}>
-                                <span className="material-symbols-rounded">favorite</span>
-                                My Favorites
-                            </a>
-                        </li>
-                        <li>
-                            <a onClick={() => handleNavigation('/dashboard/mycart')}>
-                                <span className="material-symbols-rounded">shopping_cart</span>
-                                My Cart
-                            </a>
-                        </li>
-                        <li>
-                            <a onClick={() => handleNavigation('/dashboard/mycourses')}>
-                                <span className="material-symbols-rounded">school</span>
-                                My Courses
                             </a>
                         </li>
                     </ul>
@@ -175,13 +190,13 @@ function DashBoard() {
                     <ul>
                         <li>
                             <a>
-                                <span className="material-symbols-rounded">help</span>
+                                <HelpIcon />
                                 Help
                             </a>
                         </li>
                         <li >
                             <a>
-                                <span className="material-symbols-rounded">info</span>
+                                <InfoIcon />
                                 About Us
                             </a>
                         </li>

@@ -27,6 +27,11 @@ body {
         }
     }
 
+    svg {
+        min-height: 1rem;
+        min-width: 1rem;
+    }
+
     h2 {
         font-size: 2.5rem;
         margin-bottom: 2rem;
@@ -937,7 +942,7 @@ body {
         user-select: none;
         width: 100%;
         padding: 10px;
-        box-shadow: $shadow-color-primary 0px 1px 4px;
+        box-shadow: $shadow_color 0px 1px 4px;
         margin-bottom: 2rem;
     }
 

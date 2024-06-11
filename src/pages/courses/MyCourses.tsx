@@ -28,7 +28,6 @@ function MyCourses() {
 
     return (
         <section className='myCourses'>
-            <h2>My Courses</h2>
             <div className="coursesUser">
                 {courses.length > 0 ? (
                     courses.map(course => (
