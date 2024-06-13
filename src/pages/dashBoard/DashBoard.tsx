@@ -20,6 +20,8 @@ import BellIcon from '../../components/icons/BellIcon';
 import MessagesIcon from '../../components/icons/MessagesIcon';
 import HelpIcon from '../../components/icons/HelpIcon';
 import InfoIcon from '../../components/icons/InfoIcon';
+import HomeIcon from '../../components/icons/HomeIcon';
+import SettingsIcon from '../../components/icons/SettingsIcon';
 
 function DashBoard() {
     const [visible, setVisible] = useState(false);
@@ -101,32 +103,52 @@ function DashBoard() {
             <div className="dashNav">
                 <div className='dashNav-container'>
                     <div className="dashNav-lists">
-                        <ul>
-                            <li>
-                                <a onClick={() => handleNavigation('/dashboard/shop')} data-tooltip="Shop">
-                                    <StoreIcon />
-                                    {!navCollapsed && 'Shop'}
-                                </a>
-                            </li>
-                            <li>
-                                <a onClick={() => handleNavigation('/dashboard/myfavorites')} data-tooltip="My Favorites">
-                                    <FavouriteIcon />
-                                    {!navCollapsed && 'My Favorites'}
-                                </a>
-                            </li>
-                            <li>
-                                <a onClick={() => handleNavigation('/dashboard/mycart')} data-tooltip="My Cart">
-                                    <ShoppingCartIcon />
-                                    {!navCollapsed && 'My Cart'}
-                                </a>
-                            </li>
-                            <li>
-                                <a onClick={() => handleNavigation('/dashboard/mycourses')} data-tooltip="My Courses">
-                                    <GraduationCapIcon />
-                                    {!navCollapsed && 'My Courses'}
-                                </a>
-                            </li>
-                        </ul>
+                        <div>
+                            <ul>
+                                <li>
+                                    <a onClick={() => handleNavigation('/dashboard')} data-tooltip="DashBoard">
+                                        <HomeIcon />
+                                        {!navCollapsed && 'DashBoard'}
+                                    </a>
+                                </li>
+                                <li>
+                                    <a onClick={() => handleNavigation('/dashboard/mycourses')} data-tooltip="My Courses">
+                                        <GraduationCapIcon />
+                                        {!navCollapsed && 'My Courses'}
+                                    </a>
+                                </li>
+                                <li>
+                                    <a onClick={() => handleNavigation('/dashboard/messages')} data-tooltip="Messages">
+                                        <MessagesIcon />
+                                        {!navCollapsed && 'Messages'}
+                                        <Badge value="8" />
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <ul>
+                                <li>
+                                    <a onClick={() => handleNavigation('/dashboard/shop')} data-tooltip="Shop">
+                                        <StoreIcon />
+                                        {!navCollapsed && 'Shop'}
+                                    </a>
+                                </li>
+                                <li>
+                                    <a onClick={() => handleNavigation('/dashboard/myfavorites')} data-tooltip="My Favorites">
+                                        <FavouriteIcon />
+                                        {!navCollapsed && 'My Favorites'}
+                                    </a>
+                                </li>
+                                <li>
+                                    <a onClick={() => handleNavigation('/dashboard/mycart')} data-tooltip="My Cart">
+                                        <ShoppingCartIcon />
+                                        {!navCollapsed && 'My Cart'}
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </div>
                     </div>
                     <div onClick={toggleNav} className='nav-btn'>
                         {navCollapsed ? <AnglesRightIcon /> : <AnglesLeftIcon />}
@@ -177,10 +199,9 @@ function DashBoard() {
                             </a>
                         </li>
                         <li>
-                            <a onClick={() => handleNavigation('/dashboard/messages')}>
-                                <MessagesIcon />
-                                Messages
-                                <Badge value="8" />
+                            <a onClick={() => handleNavigation('/dashboard/settings')}>
+                                <SettingsIcon />
+                                Settings
                             </a>
                         </li>
                     </ul>

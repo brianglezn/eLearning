@@ -19,7 +19,8 @@ import Shop from './pages/shop/Shop';
 import ShopCourse from './pages/shop/ShopCourse';
 import MyCart from './pages/shop/MyCart';
 import MyFavorites from './pages/shop/MyFavorites';
-
+import DashHome from './pages/dashBoard/DashHome';
+import Settings from './pages/dashBoard/Settings';
 import './App.scss';
 
 interface PrivateRouteProps {
@@ -43,10 +44,11 @@ function App() {
           <Route path="/forgotpassword" element={<ForgotPassword />} />
           <Route path="/forgotpasswordtoken" element={<ForgotPasswordToken />} />
           <Route path="/dashboard" element={<PrivateRoute><DashBoard /></PrivateRoute>}>
-            <Route index element={<MyCourses />} />
+            <Route index element={<DashHome />} />
             <Route path="shop" element={<Shop />} />
             <Route path="shop/:id" element={<ShopCourse />} />
             <Route path="account" element={<Account />} />
+            <Route path="settings" element={<Settings />} />
             <Route path="mycart" element={<MyCart />} />
             <Route path="myfavorites" element={<MyFavorites />} />
             <Route path="messages" element={<Messages />} />
