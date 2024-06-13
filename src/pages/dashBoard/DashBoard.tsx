@@ -3,6 +3,7 @@ import { useNavigate, Outlet } from 'react-router-dom';
 import { Avatar } from 'primereact/avatar';
 import { Badge } from 'primereact/badge';
 import { Sidebar } from 'primereact/sidebar';
+import { SpeedDial } from 'primereact/speeddial';
 import toast from 'react-hot-toast';
 
 import './DashBoard.scss';
@@ -22,6 +23,8 @@ import HelpIcon from '../../components/icons/HelpIcon';
 import InfoIcon from '../../components/icons/InfoIcon';
 import HomeIcon from '../../components/icons/HomeIcon';
 import SettingsIcon from '../../components/icons/SettingsIcon';
+import BarsIcon from '../../components/icons/BarsIcon';
+import XCloseIcon from '../../components/icons/XCloseIcon';
 
 function DashBoard() {
     const [visible, setVisible] = useState(false);
@@ -82,6 +85,29 @@ function DashBoard() {
         setNavCollapsed(!navCollapsed);
     };
 
+    const items = [
+        {
+            label: 'DashBoard',
+            icon: <HomeIcon />,
+            command: () => handleNavigation('/dashboard')
+        },
+        {
+            label: 'My Courses',
+            icon: <GraduationCapIcon />,
+            command: () => handleNavigation('/dashboard/mycourses')
+        },
+        {
+            label: 'Messages',
+            icon: <MessagesIcon />,
+            command: () => handleNavigation('/dashboard/messages')
+        },
+        {
+            label: 'Shop',
+            icon: <StoreIcon />,
+            command: () => handleNavigation('/dashboard/shop')
+        },
+    ];
+
     return (
         <div className={`dashBoard ${navCollapsed ? 'collapsed' : ''}`}>
             <div className="dashHeader">
@@ -94,7 +120,7 @@ function DashBoard() {
                     <div className="dashBtn">
                         <Avatar className="p-overlay-badge" onClick={() => setVisible(true)}>
                             <UserIcon />
-                            <Badge value="+10" />
+                            <Badge /> {/* Si tiene notificaciones salga el Badge y si no hay no aparezaca */}
                         </Avatar>
                     </div>
                 </div>
@@ -154,6 +180,10 @@ function DashBoard() {
                         {navCollapsed ? <AnglesRightIcon /> : <AnglesLeftIcon />}
                     </div>
                 </div>
+            </div>
+
+            <div className="dashMobileNav">
+                <SpeedDial model={items} direction="up" style={{ right: 15, bottom: 15 }} showIcon={<BarsIcon />} hideIcon={<XCloseIcon />} transitionDelay={80} />
             </div>
 
             <div className="dashContent">

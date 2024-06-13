@@ -224,6 +224,11 @@
     }
 }
 
+.dashMobileNav {
+    display: none;
+    z-index: 1000;
+}
+
 .sidebar {
     .p-sidebar-content {
         flex: 1;
@@ -325,6 +330,11 @@
 
     .sidebar {
         display: none;
+    }
+
+    .dashMobileNav {
+        display: block;
+        z-index: 1000;
     }
 }
 

@@ -3375,6 +3375,8 @@ body {
     .p-speeddial-button.p-button.p-button-icon-only {
         width: 4rem;
         height: 4rem;
+        padding: 1rem;
+        fill: $text-color-white;
     }
 
     .p-speeddial-button.p-button.p-button-icon-only .p-button-icon {
@@ -3393,12 +3395,13 @@ body {
     .p-speeddial-action {
         width: 3rem;
         height: 3rem;
-        background: $text-color-black;
-        color: #17212f;
+        padding: .6rem;
+        background: $primary_color-300;
+        fill: $primary_color-800;
     }
 
     .p-speeddial-action:hover {
-        background: $text-color-black;
+        background: $primary_color-400;
         color: #17212f;
     }
 
