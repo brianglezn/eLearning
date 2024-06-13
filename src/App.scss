@@ -2051,8 +2051,8 @@ body {
     }
 
     .p-selectbutton .p-button.p-highlight:hover {
-        background: #ffcd2e;
-        border-color: #ffcd2e;
+        background: $primary_color-500;
+        border-color: $primary_color-500;
         color: #212529;
     }
 
@@ -2307,7 +2307,7 @@ body {
 
     .p-button {
         color: #212529;
-        background: $primary_color-500;
+        background: $primary_color-700;
         border: 1px solid $primary_color-500;
         padding: 0.5rem 1rem;
         font-size: 1rem;
@@ -2316,9 +2316,9 @@ body {
     }
 
     .p-button:not(:disabled):hover {
-        background: #ffcd2e;
+        background: $primary_color-500;
         color: #212529;
-        border-color: #ffcd2e;
+        border-color: $primary_color-500;
     }
 
     .p-button:not(:disabled):active {
