@@ -161,9 +161,9 @@ function DashBoard() {
                                     </a>
                                 </li>
                                 <li>
-                                    <a onClick={() => handleNavigation('/dashboard/myfavorites')} data-tooltip="My Favorites">
+                                    <a onClick={() => handleNavigation('/dashboard/myfavorites')} data-tooltip="WishList">
                                         <FavouriteIcon />
-                                        {!navCollapsed && 'My Favorites'}
+                                        {!navCollapsed && 'WishList'}
                                     </a>
                                 </li>
                                 <li>
