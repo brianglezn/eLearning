@@ -223,7 +223,7 @@
         }
     }
 
-    .dashMobileNav {
+    .speedDial {
         display: none;
     }
 }
@@ -322,16 +322,16 @@
             display: none;
         }
 
-        .dashContent {
-            margin-top: 6rem;
-        }
-
-        .dashMobileNav {
+        .speedDial {
             display: block;
             position: fixed;
             right: 15px;
             bottom: 15px;
             z-index: 1000;
+        }
+
+        .dashContent {
+            margin-top: 6rem;
         }
     }
 }

@@ -182,10 +182,6 @@ function DashBoard() {
                 </div>
             </div>
 
-            <div className="dashMobileNav">
-                <SpeedDial model={items} direction="up" style={{ right: 15, bottom: 15 }} showIcon={<BarsIcon />} hideIcon={<XCloseIcon />} transitionDelay={80} />
-            </div>
-
             <div className="dashContent">
                 <div className="dashContent-container">
                     <Suspense fallback={<div>Loading...</div>}>
@@ -258,6 +254,10 @@ function DashBoard() {
                     <button className='custom-button' onClick={handleLogout}>Log Out</button>
                 </div>
             </Sidebar>
+
+            <div className='speedDial'>
+                <SpeedDial model={items} direction="up" style={{ right: 10, bottom: 10 }} showIcon={<BarsIcon />} hideIcon={<XCloseIcon />} transitionDelay={80} />
+            </div>
         </div>
     );
 }
