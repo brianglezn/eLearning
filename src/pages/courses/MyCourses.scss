@@ -18,5 +18,10 @@
 
     @media (max-width: 480px) {
         padding: 0;
+
+        .coursesUser {
+            justify-content: center;
+            margin: 0;
+        }
     }
 }
